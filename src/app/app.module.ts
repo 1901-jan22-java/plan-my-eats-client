@@ -7,6 +7,7 @@ import { HomeComponent } from './components/home/home.component';
 import { SelectionComponent } from './components/selection/selection.component';
 import { EatoutComponent } from './components/eatout/eatout.component';
 import { EatinComponent } from './components/eatin/eatin.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { EatinComponent } from './components/eatin/eatin.component';
     HomeComponent,
     SelectionComponent,
     EatoutComponent,
-    EatinComponent
+    EatinComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
