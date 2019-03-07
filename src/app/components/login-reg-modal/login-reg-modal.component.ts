@@ -8,6 +8,7 @@ import {LoginService} from '../../services/login.service'
   styleUrls: ['./login-reg-modal.component.css']
 })
 export class LoginRegModalComponent implements OnInit {
+
   display='none';
   notReg: boolean = true;
   subscription:Subscription;
@@ -29,4 +30,5 @@ export class LoginRegModalComponent implements OnInit {
     this.notReg = !this.notReg;
     console.log(this.notReg);
   }
+  
 }
