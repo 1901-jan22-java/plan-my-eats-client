@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Subscription} from 'rxjs';
-import {LoginService} from '../../services/login.service'
+import {ModalService} from '../../services/modal/modal.service'
 
 @Component({
   selector: 'app-login-reg-modal',
@@ -12,10 +12,10 @@ export class LoginRegModalComponent implements OnInit {
   notReg: boolean = true;
   subscription:Subscription;
 
-  constructor(private _navService: LoginService) { }
+  constructor(private _navService: ModalService) { }
 
   ngOnInit() {
-    this.subscription = this._navService.loggedItem$.subscribe(loggedIn => this.display = loggedIn);
+    this.subscription = this._navService.showItem$.subscribe(showModal => this.display = showModal);
   }
 
   closeModal() {
