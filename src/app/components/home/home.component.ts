@@ -9,6 +9,7 @@ import {LoginService} from '../../services/login.service'
 })
 export class HomeComponent implements OnInit {
   display='none';
+  notReg: boolean = true;
   subscription:Subscription;
 
   constructor(private _navService: LoginService) { }
@@ -19,5 +20,13 @@ export class HomeComponent implements OnInit {
 
   closeModal() {
     this._navService.log();
+    if(this.notReg == false) {
+      this.notReg = !this.notReg;
+    }
+  }
+
+  reg() {
+    this.notReg = !this.notReg;
+    console.log(this.notReg);
   }
 }
