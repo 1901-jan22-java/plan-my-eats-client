@@ -3,3 +3,7 @@ body {
   display: flexbox;
   background-color: #191c20;
 }
+
+footer {
+  color: white;
+}
