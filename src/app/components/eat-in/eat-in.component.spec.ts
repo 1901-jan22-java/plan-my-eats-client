@@ -2,7 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { EatInComponent } from './eat-in.component';
 
-describe('EatinComponent', () => {
+describe('EatInComponent', () => {
   let component: EatInComponent;
   let fixture: ComponentFixture<EatInComponent>;
 
