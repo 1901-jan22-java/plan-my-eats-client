@@ -5,18 +5,21 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { SelectionComponent } from './components/selection/selection.component';
-import { EatoutComponent } from './components/eatout/eatout.component';
-import { EatinComponent } from './components/eatin/eatin.component';
+import { EatOutComponent } from './components/eat-out/eat-out.component';
+import { EatInComponent } from './components/eat-in/eat-in.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+// import { LoginRegModalComponent } from './components/login-reg-modal/login-reg-modal.component';
+import { NavLoginComponent } from './components/nav-login/nav-login.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     SelectionComponent,
-    EatoutComponent,
-    EatinComponent,
-    NavbarComponent
+    EatOutComponent,
+    EatInComponent,
+    // LoginRegModalComponent,
+    NavLoginComponent,
   ],
   imports: [
     BrowserModule,
