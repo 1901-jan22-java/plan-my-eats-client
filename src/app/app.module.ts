@@ -17,8 +17,8 @@ import { MapComponent } from './components/map/map.component';
 import { LoginService } from './services/login/login.service';
 import { MapService } from './services/map/map.service';
 import { ModalService } from './services/modal/modal.service';
-import { RegisterService } from './services/register/register.service';
 import { AgmCoreModule } from '@agm/core';
+import { RegisterService } from './services/register/register.service';
 
 
 @NgModule({

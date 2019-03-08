@@ -16,7 +16,7 @@ export class MapComponent implements OnInit {
 
   @ViewChild(AgmMap)
   public agmMap: AgmMap;
-  
+
   constructor(private map: MapService) { }
 
   ngOnInit() {
@@ -27,6 +27,10 @@ export class MapComponent implements OnInit {
 
   toggleShow() {
     this.show = !this.show;
+  }
+
+  addLocation(newLoc: MapLocation) {
+    this.locations.push(newLoc);
   }
 
 }
