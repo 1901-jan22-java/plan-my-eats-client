@@ -51,7 +51,7 @@ export class LoginRegModalComponent implements OnInit {
     this.loginService.login(this.user).subscribe(
       resp => {
         if(resp != null) {
-          console.log("We have succeeded.");
+          console.log(resp);
         }
       }
     );
@@ -61,12 +61,9 @@ export class LoginRegModalComponent implements OnInit {
     this.loginService.login(this.user).subscribe(
       resp => {
         if(resp != null) {
-          console.log("We have succeeded.");
+          console.log(resp);
         }
       }
     );
   }
-
-
-
 }

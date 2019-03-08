@@ -9,13 +9,17 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { LoginRegModalComponent } from './components/login-reg-modal/login-reg-modal.component';
+import { SelectionComponent } from './components/selection/selection.component';
+import { TestApiComponent } from './components/test-api/test-api.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     NavbarComponent,
-    LoginRegModalComponent
+    LoginRegModalComponent,
+    SelectionComponent,
+    TestApiComponent
   ],
   imports: [
     BrowserModule,
