@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {Subscription} from 'rxjs';
+import {ModalService} from '../../services/modal/modal.service'
 
 @Component({
   selector: 'app-navbar',
@@ -7,7 +9,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor() { }
+  loggedIn: boolean;
+  manager: boolean;
+  subscription1:Subscription;
+
+  constructor(private _navService: ModalService) { }
 
   ngOnInit() {
     
