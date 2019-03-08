@@ -5,7 +5,7 @@
     <!-- The Modal is split into a login and a register view-->
     <div class="modal-content" *ngIf="notReg; else regis">
       <div class="modal-header">
-        <h2 class="modal-title align-content-center">Plan Your Eats Login!{{ un }}</h2>
+        <h2 class="modal-title align-content-center">Plan Your Eats Login!</h2>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="closeModal()">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -26,13 +26,13 @@
           </div>
           <span id="log-error"></span>
 
-          <button class="btn btn-secondary w-100" (click)="changeLog()">Login</button>
+          <button class="btn btn-secondary w-100" (click)="logUser()">Login</button>
 
         <button class="text-white nav-link small-text align-content-center" (click)="reg()"><i>Don't have an account?
             Sign up here!</i></button>
       </div>
     </div>
-
+    </div>
     <!-- Here the register view begins -->
     <ng-template #regis>
       <div class="modal-content">
@@ -45,23 +45,23 @@
         <div class="modal-body align-content-center">
           <div class="card-title align-content-center">
             <div class="form input-group mb-3">
-              <input [(ngModel)]="un" type="text" class="form-control" placeholder="Username">
+              <input  [(ngModel)]="un" type="text" class="form-control" placeholder="Username">
             </div>
             <div class="form input-group mb-3">
-              <input [(ngModel)]="hi" type="number" class="form-control" placeholder="Height in Inches">
+              <input  [(ngModel)]="hi" type="number" class="form-control" placeholder="Height in Inches">
             </div>
             <div class="form input-group mb-3">
-              <input [(ngModel)]="we" type="number" class="form-control" placeholder="Weight in Pounds">
+              <input  [(ngModel)]="we" type="number" class="form-control" placeholder="Weight in Pounds">
             </div>
             <div class="form input-group mb-3">
-              <input [(ngModel)]="age" type="number" class="form-control" placeholder="Age">
+              <input  [(ngModel)]="age" type="number" class="form-control" placeholder="Age">
             </div>
             <div class="form input-group mb-3">
               <input [(ngModel)]="pw" type="password" class="form-control" placeholder="Password">
             </div>
             <span id="log-error"></span>
 
-            <button class="btn btn-secondary w-100" (click)="changeLog()">Login</button>
+            <button class="btn btn-secondary w-100" (click)="changeLog()">Register</button>
           </div>
           <button class="text-white nav-link small-text align-content-center" (click)="reg()"><i>Already have an account? Sign up here!</i></button>
         </div>
