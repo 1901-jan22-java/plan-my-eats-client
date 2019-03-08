@@ -10,11 +10,11 @@ import { MapComponent } from '../map/map.component';
 })
 export class NavbarComponent implements OnInit, AfterViewInit {
 
+  @ContentChildren(MapComponent)
+  components: QueryList<MapComponent>;
   loggedIn: boolean;
   manager: boolean;
   subscription1: Subscription;
-  @ContentChildren(MapComponent)
-  components: QueryList<MapComponent>;
 
   constructor(private _navService: ModalService) { }
 

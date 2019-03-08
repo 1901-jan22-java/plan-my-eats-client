@@ -2,18 +2,18 @@
   <a class="navbar-brand" href="">
     <i class="fas fa-cookie-bite"></i>
   </a>
+
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
     aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
+  
   <div class="collapse navbar-collapse" id="navbarNav">
-
     <ul class="navbar-nav" id="welcome-detail">
 
     </ul>
-
+    <app-nav-options></app-nav-options>
   </div>
-  <ul class="navbar-nav ml-auto" id="nav-options" *ngIf="!loggedIn">
-    <li class="nav-item"> <button class="nav-link" (click)="changeLog()">Login</button> </li>
-  </ul>
+
+
 </nav>

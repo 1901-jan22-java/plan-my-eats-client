@@ -3,11 +3,11 @@ import { Subscription } from 'rxjs';
 import { ModalService } from '../../services/modal/modal.service';
 
 @Component({
-  selector: 'app-nav-login',
-  templateUrl: './nav-login.component.html',
-  styleUrls: ['./nav-login.component.css']
+  selector: 'app-nav-options',
+  templateUrl: './nav-options.component.html',
+  styleUrls: ['./nav-options.component.css']
 })
-export class NavLoginComponent implements OnInit {
+export class NavOptionsComponent implements OnInit {
 
   loggedIn: boolean;
   manager: boolean;
@@ -17,6 +17,10 @@ export class NavLoginComponent implements OnInit {
 
   ngOnInit() {
 
+  }
+
+  changeLog() {
+    this._navService.log();
   }
 
 }
