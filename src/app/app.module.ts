@@ -13,6 +13,13 @@ import { EatInComponent } from './components/eat-in/eat-in.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { LoginRegModalComponent } from './components/login-reg-modal/login-reg-modal.component';
 import { NavLoginComponent } from './components/nav-login/nav-login.component';
+import { MapComponent } from './components/map/map.component';
+import { LoginService } from './services/login/login.service';
+import { MapService } from './services/map/map.service';
+import { ModalService } from './services/modal/modal.service';
+import { RegisterService } from './services/register/register.service';
+import { AgmCoreModule } from '@agm/core';
+
 
 @NgModule({
   declarations: [
@@ -25,15 +32,23 @@ import { NavLoginComponent } from './components/nav-login/nav-login.component';
     NavbarComponent,
     NavLoginComponent,
     LoginRegModalComponent,
-    NavLoginComponent
+    NavLoginComponent,
+    MapComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    AgmCoreModule.forRoot({
+      apiKey: ""
+    }),
   ],
   providers: [
+    LoginService,
+    MapService,
+    ModalService,
+    RegisterService,
   ],
   bootstrap: [AppComponent]
 })
