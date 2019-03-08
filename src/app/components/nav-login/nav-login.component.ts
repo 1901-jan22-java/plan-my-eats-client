@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {Subscription} from 'rxjs';
-import {LoginService} from '../../services/login.service';
+import { Subscription } from 'rxjs';
+import { ModalService } from '../../services/modal/modal.service';
 
 @Component({
   selector: 'app-nav-login',
@@ -13,13 +13,10 @@ export class NavLoginComponent implements OnInit {
   manager: boolean;
   subscription1: Subscription;
 
-  constructor(private _navService: LoginService) { }
-
+  constructor(private _navService: ModalService) { }
 
   ngOnInit() {
+
   }
 
-  changeLog() {
-    this._navService.log();
-  }
 }

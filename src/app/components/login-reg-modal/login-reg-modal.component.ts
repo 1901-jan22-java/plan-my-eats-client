@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {Subscription} from 'rxjs';
-import {ModalService} from '../../services/modal/modal.service'
+import { Subscription } from 'rxjs';
+import { ModalService } from '../../services/modal/modal.service'
 import { User } from '../../models/user.model'
 import { LoginService } from '../../services/login/login.service'
 
@@ -11,9 +11,9 @@ import { LoginService } from '../../services/login/login.service'
 })
 export class LoginRegModalComponent implements OnInit {
 
-  display='none';
+  display = 'none';
   notReg: boolean = true;
-  subscription:Subscription;
+  subscription: Subscription;
   un: string;
   pw: string;
   hi: number;
@@ -38,7 +38,7 @@ export class LoginRegModalComponent implements OnInit {
 
   closeModal() {
     this._navService.log();
-    if(this.notReg == false) {
+    if (this.notReg == false) {
       this.notReg = !this.notReg;
     }
   }
@@ -51,7 +51,7 @@ export class LoginRegModalComponent implements OnInit {
   logUser() {
     this.loginService.login(this.user).subscribe(
       resp => {
-        if(resp != null) {
+        if (resp != null) {
           console.log("We have succeeded.");
         }
       }
@@ -61,7 +61,7 @@ export class LoginRegModalComponent implements OnInit {
   regUser() {
     this.loginService.login(this.user).subscribe(
       resp => {
-        if(resp != null) {
+        if (resp != null) {
           console.log("We have succeeded.");
         }
       }
