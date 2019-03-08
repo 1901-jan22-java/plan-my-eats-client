@@ -10,7 +10,7 @@ const httpOptions = {
   providedIn: 'root'
 })
 
-export class LoginService {
+export class RegisterService {
 
   url: string = 'http://localhost:8085/plan-my-eats/register'
 
