@@ -56,7 +56,10 @@ export class LoginRegModalComponent implements OnInit {
       height: this.hi,
       weight: this.we,
       age: this.age,
-      gender: 'Male'
+      gender: 'Male',
+      recipes: [],
+      restaurants: [],
+      preferences: []
     };
     this.loginService.login(this.logging).subscribe(
       resp => {
@@ -75,7 +78,10 @@ export class LoginRegModalComponent implements OnInit {
       height: this.hi,
       weight: this.we,
       age: this.age,
-      gender: 'Male'
+      gender: 'Male',
+      recipes: [],
+      restaurants: [],
+      preferences: []
     };
     this.registerService.register(this.registering).subscribe(
       resp => {
