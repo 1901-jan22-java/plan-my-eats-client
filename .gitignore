@@ -12,7 +12,6 @@
 chrome-profiler-events.json
 speed-measure-plugin.json
 
-
 #Eclipse
 **/.metadata
 **/.project
@@ -29,6 +28,14 @@ speed-measure-plugin.json
 *.launch
 *.sublime-workspace
 
+# IDE - VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.history/*
+
 #IDEA
 **/.idea/
 **/*.iml
@@ -40,15 +47,6 @@ speed-measure-plugin.json
 **/package.json
 **/package-lock.json 
 
-
-# IDE - VSCode
-.vscode/*
-!.vscode/settings.json
-!.vscode/tasks.json
-!.vscode/launch.json
-!.vscode/extensions.json
-.history/*
-
 # misc
 /.sass-cache
 /connect.lock
@@ -58,10 +56,6 @@ npm-debug.log
 yarn-error.log
 testem.log
 /typings
-
-# System Files
-.DS_Store
-Thumbs.db
 
 # git ls-files --others --exclude-from=.git/info/exclude
 # Lines that start with '#' are comments.
@@ -75,6 +69,9 @@ Thumbs.db
 **/target/
 **/bin/
 **/META-INF/**
+
+# System Files
+Thumbs.db
 
 #Mac
 .DS_Store
