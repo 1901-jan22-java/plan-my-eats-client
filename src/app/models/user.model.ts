@@ -5,5 +5,5 @@ export class User {
     height: number;
     weight: number;
     age: number;
-    sex: string;   
+    gender: string;   
 }

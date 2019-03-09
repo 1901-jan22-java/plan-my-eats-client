@@ -3,6 +3,7 @@ import { Subscription } from 'rxjs';
 import { ModalService } from '../../services/modal/modal.service'
 import { User } from '../../models/user.model'
 import { LoginService } from '../../services/login/login.service'
+import { RegisterService } from 'src/app/services/register/register.service';
 
 @Component({
   selector: 'app-login-reg-modal',
@@ -16,21 +17,21 @@ export class LoginRegModalComponent implements OnInit {
   subscription: Subscription;
   un: string;
   pw: string;
+  logUn: string;
+  logPw: string;
   hi: number;
   we: number;
   age: number;
   sex: string;
 
-  user: User = {
-    username: this.un,
-    password: this.pw,
-    height: this.hi,
-    weight: this.we,
-    age: this.age,
-    sex: this.sex
-  };
+  logging: User = null;
+  registering: User = null;
 
-  constructor(private _navService: ModalService, private loginService: LoginService) { }
+  
+
+  
+
+  constructor(private _navService: ModalService, private loginService: LoginService, private registerService: RegisterService) { }
 
   ngOnInit() {
     this.subscription = this._navService.showItem$.subscribe(showModal => this.display = showModal);
@@ -45,11 +46,18 @@ export class LoginRegModalComponent implements OnInit {
 
   reg() {
     this.notReg = !this.notReg;
-    console.log(this.notReg);
   }
 
   logUser() {
-    this.loginService.login(this.user).subscribe(
+    this.logging = {
+      username: this.logUn,
+      password: this.logPw,
+      height: this.hi,
+      weight: this.we,
+      age: this.age,
+      gender: 'Male'
+    };
+    this.loginService.login(this.logging).subscribe(
       resp => {
         if(resp != null) {
           console.log(resp);
@@ -59,7 +67,15 @@ export class LoginRegModalComponent implements OnInit {
   }
 
   regUser() {
-    this.loginService.login(this.user).subscribe(
+    this.registering = {
+      username: this.un,
+      password: this.pw,
+      height: this.hi,
+      weight: this.we,
+      age: this.age,
+      gender: 'Male'
+    };
+    this.registerService.register(this.registering).subscribe(
       resp => {
         if(resp != null) {
           console.log(resp);

@@ -19,14 +19,14 @@
             <div class="input-group-prepend">
               <span class="input-group-text" id="basic-addon1"><i class="fas fa-user"></i></span>
             </div>
-            <input [(ngModel)]="un" type="text" class="form-control" placeholder="Username">
+            <input [(ngModel)]="logUn" type="text" class="form-control" placeholder="Username">
           </div>
 
           <div class="form input-group mb-3">
             <div class="form input-group-prepend">
               <span class="input-group-text" id="basic-addon1"><i class="fas fa-key"></i></span>
             </div>
-            <input [(ngModel)]="pw" type="password" class="form-control" placeholder="Password">
+            <input [(ngModel)]="logPw" type="password" class="form-control" placeholder="Password">
           </div>
 
           <span id="log-error"></span>
@@ -75,7 +75,7 @@
 
             <span id="log-error"></span>
 
-            <button class="btn btn-secondary w-100" (click)="changeLog()">Register</button>
+            <button class="btn btn-secondary w-100" (click)="regUser()">Register</button>
           </div>
           <button class="text-white nav-link small-text align-content-center" (click)="reg()">
             <i>Already have an account? Sign up here!</i>
