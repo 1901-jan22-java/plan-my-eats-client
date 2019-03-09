@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import {Subscription} from 'rxjs';
-import {ModalService} from '../../services/modal/modal.service'
+import { Subscription } from 'rxjs';
+import { ModalService } from '../../services/modal/modal.service'
 import { User } from '../../models/user.model'
 import { LoginService } from '../../services/login/login.service'
+import { RegisterService } from 'src/app/services/register/register.service';
 
 @Component({
   selector: 'app-login-reg-modal',
@@ -10,26 +11,27 @@ import { LoginService } from '../../services/login/login.service'
   styleUrls: ['./login-reg-modal.component.css']
 })
 export class LoginRegModalComponent implements OnInit {
-  display='none';
+
+  display = 'none';
   notReg: boolean = true;
-  subscription:Subscription;
+  subscription: Subscription;
   un: string;
   pw: string;
+  logUn: string;
+  logPw: string;
   hi: number;
   we: number;
   age: number;
   sex: string;
 
-  user: User = {
-    username: this.un,
-    password: this.pw,
-    height: this.hi,
-    weight: this.we,
-    age: this.age,
-    sex: this.sex
-  };
+  logging: User = null;
+  registering: User = null;
 
-  constructor(private _navService: ModalService, private loginService: LoginService) { }
+  
+
+  
+
+  constructor(private _navService: ModalService, private loginService: LoginService, private registerService: RegisterService) { }
 
   ngOnInit() {
     this.subscription = this._navService.showItem$.subscribe(showModal => this.display = showModal);
@@ -37,36 +39,48 @@ export class LoginRegModalComponent implements OnInit {
 
   closeModal() {
     this._navService.log();
-    if(this.notReg == false) {
+    if (this.notReg == false) {
       this.notReg = !this.notReg;
     }
   }
 
   reg() {
     this.notReg = !this.notReg;
-    console.log(this.notReg);
   }
 
   logUser() {
-    this.loginService.login(this.user).subscribe(
+    this.logging = {
+      username: this.logUn,
+      password: this.logPw,
+      height: this.hi,
+      weight: this.we,
+      age: this.age,
+      gender: 'Male'
+    };
+    this.loginService.login(this.logging).subscribe(
       resp => {
         if(resp != null) {
-          console.log("We have succeeded.");
+          console.log(resp);
         }
       }
     );
   }
 
   regUser() {
-    this.loginService.login(this.user).subscribe(
+    this.registering = {
+      username: this.un,
+      password: this.pw,
+      height: this.hi,
+      weight: this.we,
+      age: this.age,
+      gender: 'Male'
+    };
+    this.registerService.register(this.registering).subscribe(
       resp => {
         if(resp != null) {
-          console.log("We have succeeded.");
+          console.log(resp);
         }
       }
     );
   }
-
-
-
 }
