@@ -1,4 +1,5 @@
 <div class="backdrop" ng-show="loggedIn" [ngStyle]="{'display':display}"></div>
+
 <div class="modal modal-dark text-white" id="myModal" tabindex="-1" role="dialog" [ngStyle]="{'display':display}">
   <div class="modal-dialog modal-dialog-centered" role="document">
 
@@ -19,14 +20,14 @@
             <div class="input-group-prepend">
               <span class="input-group-text" id="basic-addon1"><i class="fas fa-user"></i></span>
             </div>
-            <input [(ngModel)]="logUn" type="text" class="form-control" placeholder="Username">
+            <input [(ngModel)]="logging.username" type="text" class="form-control" placeholder="Username">
           </div>
 
           <div class="form input-group mb-3">
             <div class="form input-group-prepend">
               <span class="input-group-text" id="basic-addon1"><i class="fas fa-key"></i></span>
             </div>
-            <input [(ngModel)]="logPw" type="password" class="form-control" placeholder="Password">
+            <input [(ngModel)]="logging.password" type="password" class="form-control" placeholder="Password">
           </div>
 
           <span id="log-error"></span>
@@ -58,28 +59,33 @@
           <div class="card-title align-content-center">
 
             <div class="form input-group mb-3">
-              <input [(ngModel)]="un" type="text" class="form-control" placeholder="Username">
+              <input [(ngModel)]="registering.username" type="text" class="form-control" placeholder="Username">
             </div>
             <div class="form input-group mb-3">
-              <input [(ngModel)]="hi" type="number" class="form-control" placeholder="Height in Inches">
+              <input [(ngModel)]="registering.height" type="number" class="form-control" placeholder="Height in Inches">
             </div>
             <div class="form input-group mb-3">
-              <input [(ngModel)]="we" type="number" class="form-control" placeholder="Weight in Pounds">
+              <input [(ngModel)]="registering.weight" type="number" class="form-control" placeholder="Weight in Pounds">
             </div>
             <div class="form input-group mb-3">
-              <input [(ngModel)]="age" type="number" class="form-control" placeholder="Age">
+              <input [(ngModel)]="registering.age" type="number" class="form-control" placeholder="Age">
             </div>
             <div class="form input-group mb-3">
-              <input [(ngModel)]="pw" type="password" class="form-control" placeholder="Password">
+              <input [(ngModel)]="registering.gender" type="text" class="form-control" placeholder="Gender">
+            </div>
+            <div class="form input-group mb-3">
+              <input [(ngModel)]="registering.password" type="password" class="form-control" placeholder="Password">
             </div>
 
             <span id="log-error"></span>
 
             <button class="btn btn-secondary w-100" (click)="regUser()">Register</button>
           </div>
+
           <button class="text-white nav-link small-text align-content-center" (click)="reg()">
             <i>Already have an account? Sign up here!</i>
           </button>
+
         </div>
 
       </div>

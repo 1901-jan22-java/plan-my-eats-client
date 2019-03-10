@@ -1,3 +1,12 @@
-<div class="jumbotron bg-dark text-white">
-  <h1>We are logged in!</h1>
+<div class="user-home-container">
+  <div class="user-home-container-item jumbotron jumbotron-fluidbg-dark text-white">
+    <div class="container">
+      <h1 class="display-3">Welcome, {{ user.username }}</h1>
+      <hr class="my-2">
+      <p class="lead">
+        <button (click)="eatIn()">Eat In</button>
+        <button (click)="eatOut()">Eat Out</button>
+      </p>
+    </div>
+  </div>
 </div>

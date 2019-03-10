@@ -9,7 +9,6 @@ const httpOptions = {
 @Injectable({
   providedIn: 'root'
 })
-
 export class RegisterService {
 
   url: string = 'http://localhost:8085/plan-my-eats/register'
