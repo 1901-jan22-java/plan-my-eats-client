@@ -22,6 +22,7 @@ import { RegisterService } from './services/register/register.service';
 import { TestApiService } from './services/testapi/test-api.service'
 import { TestApiComponent } from './components/test-api/test-api.component';
 import { PreferencesProfileComponent } from './components/preferences-profile/preferences-profile.component'
+import { LogInViewComponent } from './components/log-in-view/log-in-view.component'
 
 
 @NgModule({
@@ -40,6 +41,7 @@ import { PreferencesProfileComponent } from './components/preferences-profile/pr
     LoginRegModalComponent,
     MapComponent,
     PreferencesProfileComponent,
+    LogInViewComponent,
   ],
   imports: [
     BrowserModule,

@@ -12,3 +12,7 @@
 app-map{
     height: 500px;
 }
+
+.jumbotron {
+    opacity: 0.75;
+}
