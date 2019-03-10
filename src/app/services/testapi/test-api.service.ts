@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http'
 
 const httpOptions = {
-  headers: new HttpHeaders({'Content-Type': 'application/json'})
+  headers: new HttpHeaders({'Content-Type': 'text/plain'})
 };
 
 @Injectable({
@@ -20,6 +20,10 @@ export class TestApiService {
   constructor(private http: HttpClient) { }
 
   public getData(location: string, keyword: string) {
-    return this.http.post<any>('localhost:8085/plan-my-eats/testing',`${this.url}&location=${location}${this.radius}${this.type}&keyword=${keyword}${this.key}`, httpOptions);
+    return this.http.post<string>('http://localhost:8085/plan-my-eats/testing',`${this.url}&location=${location}${this.radius}${this.type}&keyword=${keyword}${this.key}`, httpOptions);
+  }
+
+  public hitdata(location: string, keyword: string) {
+    return this.http.get<string>('http://localhost:8085/plan-my-eats/testing', httpOptions);
   }
 }

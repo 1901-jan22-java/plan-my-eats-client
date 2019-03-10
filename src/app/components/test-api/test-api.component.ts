@@ -26,6 +26,7 @@ export class TestApiComponent implements OnInit {
       resp => {
         if(resp != null) {
           this.result = resp;
+          console.log(resp);
         }
       }
     );
