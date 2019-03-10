@@ -3,26 +3,29 @@ import { NgModule } from '@angular/core';
 import { ReactiveFormsModule }    from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
-
 import { AppRoutingModule } from './app-routing.module';
+import { AgmCoreModule } from '@agm/core';
+
 import { AppComponent } from './app.component';
-import { HomeComponent } from './components/home/home.component';
-import { SelectionComponent } from './components/selection/selection.component';
-import { EatOutComponent } from './components/eat-out/eat-out.component';
-import { EatInComponent } from './components/eat-in/eat-in.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
-import { LoginRegModalComponent } from './components/login-reg-modal/login-reg-modal.component';
 import { NavOptionsComponent } from './components/nav-options/nav-options.component';
+import { HomeComponent } from './components/home/home.component';
+import { LoginRegModalComponent } from './components/login-reg-modal/login-reg-modal.component';
+import { UserHomeComponent } from './components/user-home/user-home.component';
+import { PreferencesProfileComponent } from './components/preferences-profile/preferences-profile.component';
 import { MapComponent } from './components/map/map.component';
+import { EatInComponent } from './components/eat-in/eat-in.component';
+import { EatOutComponent } from './components/eat-out/eat-out.component';
+import { SelectionComponent } from './components/selection/selection.component';
+
 import { LoginService } from './services/login/login.service';
 import { MapService } from './services/map/map.service';
 import { ModalService } from './services/modal/modal.service';
-import { AgmCoreModule } from '@agm/core';
 import { RegisterService } from './services/register/register.service';
-import { TestApiService } from './services/testapi/test-api.service'
+
+// NOT PART OF THE APP
 import { TestApiComponent } from './components/test-api/test-api.component';
-import { PreferencesProfileComponent } from './components/preferences-profile/preferences-profile.component'
-import { LogInViewComponent } from './components/log-in-view/log-in-view.component'
+import { TestApiService } from './services/testapi/test-api.service'
 
 
 @NgModule({
@@ -36,18 +39,19 @@ import { LogInViewComponent } from './components/log-in-view/log-in-view.compone
     NavbarComponent,
     LoginRegModalComponent,
     SelectionComponent,
-    TestApiComponent,
     NavOptionsComponent,
     LoginRegModalComponent,
     MapComponent,
     PreferencesProfileComponent,
-    LogInViewComponent,
+    UserHomeComponent,
+    TestApiComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
     AgmCoreModule.forRoot({
       apiKey: ""
     }),
@@ -57,6 +61,8 @@ import { LogInViewComponent } from './components/log-in-view/log-in-view.compone
     MapService,
     ModalService,
     RegisterService,
+
+    // NOT PART OF THE APP!
     TestApiService
   ],
   bootstrap: [AppComponent]
