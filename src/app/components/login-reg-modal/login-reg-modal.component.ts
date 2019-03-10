@@ -4,6 +4,7 @@ import { ModalService } from '../../services/modal/modal.service'
 import { User } from '../../models/user.model'
 import { LoginService } from '../../services/login/login.service'
 import { RegisterService } from 'src/app/services/register/register.service';
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-login-reg-modal',
@@ -31,7 +32,7 @@ export class LoginRegModalComponent implements OnInit {
 
   
 
-  constructor(private _navService: ModalService, private loginService: LoginService, private registerService: RegisterService) { }
+  constructor(private _navService: ModalService, private loginService: LoginService, private registerService: RegisterService, private router: Router) { }
 
   ngOnInit() {
     this.subscription = this._navService.showItem$.subscribe(showModal => this.display = showModal);
@@ -55,12 +56,16 @@ export class LoginRegModalComponent implements OnInit {
       height: this.hi,
       weight: this.we,
       age: this.age,
-      gender: 'Male'
+      gender: 'Male',
+      recipes: [],
+      restaurants: [],
+      preferences: []
     };
     this.loginService.login(this.logging).subscribe(
       resp => {
         if(resp != null) {
           console.log(resp);
+          this.router.navigate(['logged']);
         }
       }
     );
@@ -73,12 +78,16 @@ export class LoginRegModalComponent implements OnInit {
       height: this.hi,
       weight: this.we,
       age: this.age,
-      gender: 'Male'
+      gender: 'Male',
+      recipes: [],
+      restaurants: [],
+      preferences: []
     };
     this.registerService.register(this.registering).subscribe(
       resp => {
         if(resp != null) {
           console.log(resp);
+          this.router.navigate(['logged']);
         }
       }
     );

@@ -6,4 +6,7 @@ export class User {
     weight: number;
     age: number;
     gender: string;   
+    recipes: string[];
+    restaurants: string[];
+    preferences: string[];
 }

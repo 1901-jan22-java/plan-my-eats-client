@@ -20,7 +20,8 @@ import { ModalService } from './services/modal/modal.service';
 import { AgmCoreModule } from '@agm/core';
 import { RegisterService } from './services/register/register.service';
 import { TestApiService } from './services/testapi/test-api.service'
-import { TestApiComponent } from './components/test-api/test-api.component'
+import { TestApiComponent } from './components/test-api/test-api.component';
+import { LogInViewComponent } from './components/log-in-view/log-in-view.component'
 
 
 @NgModule({
@@ -38,6 +39,7 @@ import { TestApiComponent } from './components/test-api/test-api.component'
     NavOptionsComponent,
     LoginRegModalComponent,
     MapComponent,
+    LogInViewComponent,
   ],
   imports: [
     BrowserModule,
