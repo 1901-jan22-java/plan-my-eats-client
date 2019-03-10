@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http'
-import { User } from '../../models/user.model'
+import { Observable, Subject } from 'rxjs';
+import { User } from 'src/app/models/user.model';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -11,11 +12,21 @@ const httpOptions = {
 })
 export class RegisterService {
 
-  url: string = 'http://localhost:8085/plan-my-eats/register'
+  user$: Observable<User>;
+  private userSubject: Subject<User> = new Subject<User>();
+  
+  url: string = 'http://localhost:8081/plan-my-eats/register'
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) { 
+    this.user$ = this.userSubject.asObservable();
+  }
 
   public register(user: User) {
     return this.http.post<User>(`${this.url}`, user, httpOptions);
   }
+
+  public sendUser(user: User) {
+    this.userSubject.next(user);
+  }
+
 }

@@ -15,20 +15,9 @@ export class LoginRegModalComponent implements OnInit {
 
   display = 'none';
   notReg: boolean = true;
-  subscription: Subscription;
-  
-  un: string;
-  pw: string;
-  logUn: string;
-  logPw: string;
-  hi: number;
-  we: number;
-  age: number;
-  sex: string;
 
-  logging: User = null;
-  registering: User = null;
-
+  logging: User = new User();
+  registering: User = new User();
 
   constructor(private _navService: ModalService, private loginService: LoginService,
     private registerService: RegisterService, private router: Router) {
@@ -36,14 +25,12 @@ export class LoginRegModalComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.subscription = this._navService.showItem$.subscribe(showModal => this.display = showModal);
+    this._navService.showItem$.subscribe(showModal => this.display = showModal);
   }
 
   closeModal() {
+    this.notReg = true;
     this._navService.log();
-    if (this.notReg == false) {
-      this.notReg = !this.notReg;
-    }
   }
 
   reg() {
@@ -51,46 +38,22 @@ export class LoginRegModalComponent implements OnInit {
   }
 
   logUser() {
-    // this.logging = {
-    //   username: this.logUn,
-    //   password: this.logPw,
-    //   height: this.hi,
-    //   weight: this.we,
-    //   age: this.age,
-    //   gender: 'Male',
-    //   recipes: [],
-    //   restaurants: [],
-    //   preferences: []
-    // };
-    this.loginService.login(this.logging).subscribe(
-      resp => {
-        if (resp != null) {
-          console.log(resp);
-          this.router.navigate(['user-home']);
-        }
+    this.loginService.login(this.logging).subscribe(resp => {
+      console.log(resp);
+      if (resp != null && resp instanceof User) {
+        this.router.navigate(['user-home']);
+        this.loginService.sendUser(resp);
       }
-    );
+    });
   }
 
   regUser() {
-    // this.registering = {
-    //   username: this.un,
-    //   password: this.pw,
-    //   height: this.hi,
-    //   weight: this.we,
-    //   age: this.age,
-    //   gender: 'Male',
-    //   recipes: [],
-    //   restaurants: [],
-    //   preferences: []
-    // };
-    this.registerService.register(this.registering).subscribe(
-      resp => {
-        if (resp != null) {
-          console.log(resp);
-          this.router.navigate(['user-home']);
-        }
+    this.registerService.register(this.registering).subscribe(resp => {
+      console.log(resp);
+      if (resp != null && resp instanceof User) {
+        this.router.navigate(['user-home']);
+        this.registerService.sendUser(resp)
       }
-    );
+    });
   }
 }

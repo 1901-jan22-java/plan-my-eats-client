@@ -1,14 +1,16 @@
 .home-container {
-    display: flexbox;
-    align-content: flex-start;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  display: flexbox;
+  align-content: flex-start;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
 .home-container-item {
-    border: 5px;
-    border-radius: 25px;
+  border: 5px;
+  border-radius: 25px;
+  padding: 10px;
+  margin: 10px;
 }
 
 .jumbotron {
-    opacity: 0.75;
+  background: rgba(inherit, inherit, inherit, 0.75);
 }

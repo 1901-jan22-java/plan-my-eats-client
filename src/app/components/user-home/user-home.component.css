@@ -1,5 +1,5 @@
 .jumbotron {
-    opacity: 0.5;
+    background: rgba(inherit, inherit, inherit, 0.5);
 }
 
 .user-home-container {

@@ -20,16 +20,8 @@ export class UserHomeComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.loginService.login(this.user).subscribe(resp => {
-      if (resp != null && resp instanceof User) {
-        this.user = resp;
-      }
-    });
-    this.registerService.register(this.user).subscribe(resp => {
-      if (resp != null && resp instanceof User) {
-        this.user = resp;
-      }
-    });
+    this.loginService.user$.subscribe(resp => this.user = resp);
+    this.registerService.user$.subscribe(resp => this.user = resp);
   }
 
   public eatIn() {
