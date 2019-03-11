@@ -8,3 +8,21 @@ body {
 footer {
   color: white;
 }
+
+* [class$='-container'] {
+  display: flexbox;
+  flex-direction: column;
+  align-content: center;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+* [class$='-container-item'] {
+  border: 5px;
+  border-radius: solid black 25px;
+
+}
+
+.jumbotron {
+  /* opacity: 0.75; */
+  background: rgba(inherit, inherit, inherit, 0.75);
+}

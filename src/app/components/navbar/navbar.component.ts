@@ -1,7 +1,5 @@
 import { Component, OnInit, QueryList, ContentChildren, AfterViewInit } from '@angular/core';
-import { Subscription } from 'rxjs';
-import { ModalService } from '../../services/modal/modal.service';
-import { MapComponent } from '../map/map.component';
+import { MapComponent } from '../user-home/map/map.component';
 
 @Component({
   selector: 'app-navbar',
@@ -12,11 +10,11 @@ export class NavbarComponent implements OnInit, AfterViewInit {
 
   @ContentChildren(MapComponent)
   components: QueryList<MapComponent>;
+
   loggedIn: boolean;
   manager: boolean;
-  subscription1: Subscription;
 
-  constructor(private _navService: ModalService) { }
+  constructor() { }
 
   ngOnInit() {
 
@@ -26,10 +24,6 @@ export class NavbarComponent implements OnInit, AfterViewInit {
     //THIS SHOULD NOT BE EMPTY
     this.components.changes.subscribe(() => console.log(this.components.toArray()));
     //console.log(this.inputComponents.toArray());
-  }
-
-  changeLog() {
-    this._navService.log();
   }
 
 }

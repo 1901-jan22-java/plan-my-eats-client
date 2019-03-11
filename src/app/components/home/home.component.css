@@ -1,14 +1,3 @@
-.home-container {
-    display: flexbox;
-    align-content: flex-start;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-}
-
-.home-container-item {
-    border: 5px;
-    border-radius: 25px;
-}
-
 app-map{
     height: 500px;
 }

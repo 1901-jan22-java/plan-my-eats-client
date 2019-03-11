@@ -1,0 +1,21 @@
+<div class="backdrop" ng-show="loggedIn" [ngStyle]="{'display': display}"></div>
+
+<div class="modal modal-dark text-white" id="myModal" tabindex="-1" role="dialog" [ngStyle]="{'display': display}">
+  <div class="modal-dialog modal-dialog-centered" role="document" [ngSwitch]="modalView">
+
+    <!-- The Modal is split into a login and a register view-->
+    <app-login-form *ngSwitchCase="'login'"></app-login-form>
+    <!-- Here the register view begins -->
+    <app-register-form *ngSwitchCase="'register'"></app-register-form>
+
+    <div class="modal-content" *ngSwitchDefault>
+      <div class="modal-header">
+        <h2 class="modal-title align-content-center">Uh oh... something went wrong... D:</h2>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="closeModal()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+    </div>
+
+  </div>
+</div>
