@@ -1,11 +1,24 @@
 <div class="user-home-container">
   <div class="user-home-container-item jumbotron jumbotron-fluidbg-dark text-white">
-    <div class="container">
-      <h1 class="display-3">Welcome, {{ user.username }}</h1>
+    <div class="container text-muted">
+      <h1 class="display-3">Welcome, {{ user.username }}!</h1>
+
+      <p class="lead">
+        Username: {{ user.username }} <br>
+        <br>
+        Gender: {{ user.gender }} <br>
+        Age: {{ user.age }} <br>
+        Height: {{ user.height }} <br>
+        Weight: {{ user.weight }} <br>
+        <br>
+        Recipes: {{ user.recipes }} <br>
+        Restaurants: {{ user.restaurants }} <br>
+        Preferences: {{ user.preferences }}
+      </p>
       <hr class="my-2">
       <p class="lead">
-        <button class="" (click)="eatIn()">Eat In</button>
-        <button class="" (click)="eatOut()">Eat Out</button>
+        <button class="btn btn-primary" (click)="eatIn()">Eat In</button>
+        <button class="btn btn-primary" (click)="eatOut()">Eat Out</button>
       </p>
     </div>
   </div>

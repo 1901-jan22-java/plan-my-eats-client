@@ -1,5 +1,4 @@
 import { Component, OnInit, QueryList, ContentChildren, AfterViewInit } from '@angular/core';
-import { Subscription } from 'rxjs';
 import { MapComponent } from '../user-home/map/map.component';
 
 @Component({
@@ -14,7 +13,6 @@ export class NavbarComponent implements OnInit, AfterViewInit {
 
   loggedIn: boolean;
   manager: boolean;
-  subscription1: Subscription;
 
   constructor() { }
 
