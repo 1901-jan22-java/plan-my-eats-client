@@ -1,6 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
 body {
-  display: flexbox;
-  background-color: #191c20;
+  /* background-color: #191c20; */
+  background-image: url('/assets/dinner-dish-egg-54455.jpg');
+  background-size: cover;
+}
+
+footer {
   color: white;
 }

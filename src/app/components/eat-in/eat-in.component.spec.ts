@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { NavLoginComponent } from './nav-login.component';
+import { EatInComponent } from './eat-in.component';
 
-describe('NavLoginComponent', () => {
-  let component: NavLoginComponent;
-  let fixture: ComponentFixture<NavLoginComponent>;
+describe('EatInComponent', () => {
+  let component: EatInComponent;
+  let fixture: ComponentFixture<EatInComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ NavLoginComponent ]
+      declarations: [ EatInComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(NavLoginComponent);
+    fixture = TestBed.createComponent(EatInComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
