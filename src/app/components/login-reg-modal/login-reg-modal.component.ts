@@ -59,7 +59,8 @@ export class LoginRegModalComponent implements OnInit {
       gender: 'Male',
       recipes: [],
       restaurants: [],
-      preferences: []
+      preferences: [],
+      token: ''
     };
     this.loginService.login(this.logging).subscribe(
       resp => {
@@ -81,7 +82,8 @@ export class LoginRegModalComponent implements OnInit {
       gender: 'Male',
       recipes: [],
       restaurants: [],
-      preferences: []
+      preferences: [],
+      token: ''
     };
     this.registerService.register(this.registering).subscribe(
       resp => {

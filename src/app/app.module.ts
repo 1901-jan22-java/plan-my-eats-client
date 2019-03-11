@@ -21,7 +21,8 @@ import { AgmCoreModule } from '@agm/core';
 import { RegisterService } from './services/register/register.service';
 import { TestApiService } from './services/testapi/test-api.service'
 import { TestApiComponent } from './components/test-api/test-api.component';
-import { LogInViewComponent } from './components/log-in-view/log-in-view.component'
+import { LogInViewComponent } from './components/log-in-view/log-in-view.component';
+import { AlertComponent } from './components/alert/alert.component'
 
 
 @NgModule({
@@ -40,6 +41,7 @@ import { LogInViewComponent } from './components/log-in-view/log-in-view.compone
     LoginRegModalComponent,
     MapComponent,
     LogInViewComponent,
+    AlertComponent,
   ],
   imports: [
     BrowserModule,

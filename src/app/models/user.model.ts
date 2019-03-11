@@ -9,4 +9,5 @@ export class User {
     recipes: string[];
     restaurants: string[];
     preferences: string[];
+    token: string;
 }
