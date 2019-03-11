@@ -19,8 +19,7 @@ footer {
 * [class$='-container-item'] {
   border: 5px;
   border-radius: solid black 25px;
-  padding: 10px;
-  margin: 10px;
+
 }
 
 .jumbotron {
