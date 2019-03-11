@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
 import { User } from 'src/app/models/user.model';
-import { LoginService } from 'src/app/services/login/login.service';
-import { RegisterService } from 'src/app/services/register/register.service';
+import { LoginService } from 'src/app/services/modal/login/login.service';
+import { RegisterService } from 'src/app/services/modal/register/register.service';
 import { Router } from '@angular/router';
 
 @Component({

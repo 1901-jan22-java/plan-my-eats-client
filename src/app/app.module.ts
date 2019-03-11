@@ -1,49 +1,65 @@
-import { BrowserModule } from '@angular/platform-browser';
+// MODULES
 import { NgModule } from '@angular/core';
-import { ReactiveFormsModule }    from '@angular/forms';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { AgmCoreModule } from '@agm/core';
 
+// COMPONENTS
 import { AppComponent } from './app.component';
+
 import { NavbarComponent } from './components/navbar/navbar.component';
-import { NavOptionsComponent } from './components/nav-options/nav-options.component';
+import { NavOptionsComponent } from './components/navbar/nav-options/nav-options.component';
+
 import { HomeComponent } from './components/home/home.component';
-import { LoginRegModalComponent } from './components/login-reg-modal/login-reg-modal.component';
 import { UserHomeComponent } from './components/user-home/user-home.component';
-import { PreferencesProfileComponent } from './components/preferences-profile/preferences-profile.component';
-import { MapComponent } from './components/map/map.component';
-import { EatInComponent } from './components/eat-in/eat-in.component';
-import { EatOutComponent } from './components/eat-out/eat-out.component';
+
+import { EatInComponent } from './components/user-home/eat-in/eat-in.component';
+import { EatOutComponent } from './components/user-home/eat-out/eat-out.component';
+import { MapComponent } from './components/user-home/map/map.component';
+
+import { ModalComponent } from './components/modal/modal.component';
+import { LoginFormComponent } from './components/modal/login-form/login-form.component';
+import { RegisterFormComponent } from './components/modal/register-form/register-form.component';
+
+// I don't know what to do with these yet
+import { PreferencesComponent } from './components/user-home/preferences/preferences.component';
 import { SelectionComponent } from './components/selection/selection.component';
 
-import { LoginService } from './services/login/login.service';
-import { MapService } from './services/map/map.service';
+// SERVICES
 import { ModalService } from './services/modal/modal.service';
-import { RegisterService } from './services/register/register.service';
+import { LoginService } from './services/modal/login/login.service';
+import { RegisterService } from './services/modal/register/register.service';
+import { MapService } from './services/map/map.service';
 
 // NOT PART OF THE APP
 import { TestApiComponent } from './components/test-api/test-api.component';
-import { TestApiService } from './services/testapi/test-api.service'
-
+import { TestApiService } from './services/testapi/test-api.service';
 
 @NgModule({
   declarations: [
     AppComponent,
+
     HomeComponent,
-    SelectionComponent,
-    EatOutComponent,
-    EatInComponent,
-    LoginRegModalComponent,
     NavbarComponent,
-    LoginRegModalComponent,
-    SelectionComponent,
+
     NavOptionsComponent,
-    LoginRegModalComponent,
-    MapComponent,
-    PreferencesProfileComponent,
+
     UserHomeComponent,
+    EatInComponent,
+    EatOutComponent,
+    MapComponent,
+    PreferencesComponent,
+
+    SelectionComponent,
+
+    ModalComponent,
+    LoginFormComponent,
+    RegisterFormComponent,
+
+    // NOT PART OF THE APP
     TestApiComponent,
   ],
   imports: [

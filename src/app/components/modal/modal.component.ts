@@ -1,20 +1,19 @@
 import { Component, OnInit } from '@angular/core';
-import { Subscription } from 'rxjs';
-import { ModalService } from '../../services/modal/modal.service'
-import { User } from '../../models/user.model'
-import { LoginService } from '../../services/login/login.service'
 import { RegisterService } from 'src/app/services/register/register.service';
 import { Router } from "@angular/router";
+import { ModalService } from 'src/app/services/modal/modal.service';
+import { LoginService } from 'src/app/services/login/login.service';
+import { User } from 'src/app/models/user.model';
 
 @Component({
-  selector: 'app-login-reg-modal',
-  templateUrl: './login-reg-modal.component.html',
-  styleUrls: ['./login-reg-modal.component.css']
+  selector: 'app-modal',
+  templateUrl: './modal.component.html',
+  styleUrls: ['./modal.component.css']
 })
-export class LoginRegModalComponent implements OnInit {
+export class ModalComponent implements OnInit {
 
   display = 'none';
-  notReg: boolean = true;
+  modalView: string = 'login';
 
   logging: User = new User();
   registering: User = new User();
@@ -29,12 +28,14 @@ export class LoginRegModalComponent implements OnInit {
   }
 
   closeModal() {
-    this.notReg = true;
+    this.modalView = 'login';
     this._navService.log();
   }
 
   reg() {
-    this.notReg = !this.notReg;
+    if(this.modalView == 'login'){
+      this.modalView = "register";
+    }
   }
 
   logUser() {
