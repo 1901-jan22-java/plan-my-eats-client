@@ -30,8 +30,8 @@ import { SelectionComponent } from './components/selection/selection.component';
 
 // SERVICES
 import { ModalService } from './services/modal/modal.service';
-import { LoginService } from './services/modal/login/login.service';
-import { RegisterService } from './services/modal/register/register.service';
+import { LoginService } from './services/login/login.service';
+import { RegisterService } from './services/register/register.service';
 import { MapService } from './services/map/map.service';
 
 // NOT PART OF THE APP

@@ -1,3 +1,44 @@
-<p>
-  register-form works!
-</p>
+<div class="modal-content">
+
+  <div class="modal-header">
+    <h2 class="modal-title align-content-center">Start Planning Your Eats!</h2>
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="closeModal()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+
+  <div class="modal-body align-content-center">
+
+    <div class="card-title align-content-center">
+
+      <div class="form input-group mb-3">
+        <input [(ngModel)]="registering.username" type="text" class="form-control" placeholder="Username">
+      </div>
+      <div class="form input-group mb-3">
+        <input [(ngModel)]="registering.height" type="number" class="form-control" placeholder="Height in Inches">
+      </div>
+      <div class="form input-group mb-3">
+        <input [(ngModel)]="registering.weight" type="number" class="form-control" placeholder="Weight in Pounds">
+      </div>
+      <div class="form input-group mb-3">
+        <input [(ngModel)]="registering.age" type="number" class="form-control" placeholder="Age">
+      </div>
+      <div class="form input-group mb-3">
+        <input [(ngModel)]="registering.gender" type="text" class="form-control" placeholder="Gender">
+      </div>
+      <div class="form input-group mb-3">
+        <input [(ngModel)]="registering.password" type="password" class="form-control" placeholder="Password">
+      </div>
+
+      <span id="log-error"></span>
+
+      <button class="btn btn-secondary w-100" (click)="registerUser()">Register</button>
+    </div>
+
+    <button class="text-white nav-link small-text align-content-center" (click)="goToLogin()">
+      <i>Already have an account? Sign up here!</i>
+    </button>
+
+  </div>
+
+</div>

@@ -3,9 +3,9 @@ import { Routes, RouterModule } from '@angular/router';
 
 // COMPONENTS WE USE
 import { HomeComponent } from './components/home/home.component';
-import { PreferencesProfileComponent } from './components/preferences-profile/preferences-profile.component';
-import { EatInComponent } from './components/eat-in/eat-in.component';
-import { EatOutComponent } from './components/eat-out/eat-out.component';
+import { PreferencesComponent } from './components/user-home/preferences/preferences.component';
+import { EatInComponent } from './components/user-home/eat-in/eat-in.component';
+import { EatOutComponent } from './components/user-home/eat-out/eat-out.component';
 import { SelectionComponent } from './components/selection/selection.component';
 import { UserHomeComponent } from './components/user-home/user-home.component';
 
@@ -16,7 +16,7 @@ const routes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
   {path: 'home', component: HomeComponent},
   {path: 'user-home', component: UserHomeComponent},
-  {path: 'profile', component: PreferencesProfileComponent},
+  {path: 'preferences', component: PreferencesComponent},
   {path: 'eat-in', component: EatInComponent},
   {path: 'eat-out', component: EatOutComponent},
   {path: 'selection', component: SelectionComponent},
