@@ -26,4 +26,5 @@ export class TestApiService {
   public hitdata(location: string, keyword: string) {
     return this.http.get<string>('http://localhost:8085/plan-my-eats/testing', httpOptions);
   }
+  
 }

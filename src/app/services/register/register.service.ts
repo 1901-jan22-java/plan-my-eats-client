@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http'
-import { User } from '../../models/user.model'
+import { Observable, Subject } from 'rxjs';
+import { User } from 'src/app/models/user.model';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -9,14 +10,15 @@ const httpOptions = {
 @Injectable({
   providedIn: 'root'
 })
-
 export class RegisterService {
 
-  url: string = 'http://localhost:8085/plan-my-eats/register'
+  url: string = 'http://localhost:8081/plan-my-eats/register'
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) { 
+  }
 
   public register(user: User) {
     return this.http.post<User>(`${this.url}`, user, httpOptions);
   }
+
 }

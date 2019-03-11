@@ -1,0 +1,9 @@
+.card {
+  max-width: 500px;
+  margin: auto;
+  opacity: 0.9;
+}
+
+.btn {
+    margin: 10px;
+}

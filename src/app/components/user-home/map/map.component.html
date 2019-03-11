@@ -1,4 +1,4 @@
-<agm-map #agmMap [latitude]="loc.latitude" [longitude]="loc.longitude">
+<agm-map #agmMap [latitude]="loc.latitude" [longitude]="loc.longitude" *ngIf="show">
   <!-- [zoom]="zoom" [disableDefaultUI]="false" [zoomControl]="false"> -->
   <agm-marker [latitude]="loc.latitude" [longitude]="loc.longitude"></agm-marker>
   <agm-marker *ngFor="let l of locations" [latitude]="l.latitude" [longitude]="l.longitude"></agm-marker>

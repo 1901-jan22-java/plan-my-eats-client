@@ -1,17 +1,28 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+
+// COMPONENTS WE USE
 import { HomeComponent } from './components/home/home.component';
-import { TestApiComponent } from './components/test-api/test-api.component';
+import { PreferencesComponent } from './components/user-home/preferences/preferences.component';
+import { EatInComponent } from './components/user-home/eat-in/eat-in.component';
+import { EatOutComponent } from './components/user-home/eat-out/eat-out.component';
 import { SelectionComponent } from './components/selection/selection.component';
-import { LogInViewComponent } from './components/log-in-view/log-in-view.component';
+import { UserHomeComponent } from './components/user-home/user-home.component';
+
+// NOT PART OF THE APP
+import { TestApiComponent } from './components/test-api/test-api.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
   {path: 'home', component: HomeComponent},
-  {path: 'test', component: TestApiComponent},
+  {path: 'user-home', component: UserHomeComponent},
+  {path: 'preferences', component: PreferencesComponent},
+  {path: 'eat-in', component: EatInComponent},
+  {path: 'eat-out', component: EatOutComponent},
   {path: 'selection', component: SelectionComponent},
-  {path: 'logged', component: LogInViewComponent}
   
+  // NOT PART OF THE APP
+  {path: 'test', component: TestApiComponent},
 ];
 
 @NgModule({

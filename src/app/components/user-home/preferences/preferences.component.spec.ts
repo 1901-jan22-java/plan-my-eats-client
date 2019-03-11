@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { LoginRegModalComponent } from './login-reg-modal.component';
+import { PreferencesComponent } from './preferences.component';
 
-describe('LoginRegModalComponent', () => {
-  let component: LoginRegModalComponent;
-  let fixture: ComponentFixture<LoginRegModalComponent>;
+describe('PreferencesProfileComponent', () => {
+  let component: PreferencesComponent;
+  let fixture: ComponentFixture<PreferencesComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ LoginRegModalComponent ]
+      declarations: [ PreferencesComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(LoginRegModalComponent);
+    fixture = TestBed.createComponent(PreferencesComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
