@@ -18,6 +18,7 @@ export class RegisterService {
   }
 
   public register(user: User) {
+    // console.log(user);
     return this.http.post<User>(`${this.url}`, user, httpOptions);
   }
 

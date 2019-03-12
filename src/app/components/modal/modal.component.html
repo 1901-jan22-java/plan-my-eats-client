@@ -4,9 +4,9 @@
   <div class="modal-dialog modal-dialog-centered" role="document" [ngSwitch]="modalView">
 
     <!-- The Modal is split into a login and a register view-->
-    <app-login-form *ngSwitchCase="'login'"></app-login-form>
+    <app-login-form  class="modal-content" *ngSwitchCase="'login'"></app-login-form>
     <!-- Here the register view begins -->
-    <app-register-form *ngSwitchCase="'register'"></app-register-form>
+    <app-register-form  class="modal-content" *ngSwitchCase="'register'"></app-register-form>
 
     <div class="modal-content" *ngSwitchDefault>
       <div class="modal-header">

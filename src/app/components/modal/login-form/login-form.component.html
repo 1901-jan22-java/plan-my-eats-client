@@ -1,37 +1,33 @@
-<div class="modal-content">
+<div class="modal-header">
+  <h2 class="modal-title align-content-center">Plan My Eats Login!</h2>
+  <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="closeModal()">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
 
-  <div class="modal-header">
-    <h2 class="modal-title align-content-center">Plan My Eats Login!</h2>
-    <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="closeModal()">
-      <span aria-hidden="true">&times;</span>
+<div class="modal-body align-content-center">
+  <div class="card-title align-content-center">
+
+    <div class="form input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="basic-addon1"><i class="fas fa-user"></i></span>
+      </div>
+      <input [(ngModel)]="logging.username" type="text" class="form-control" placeholder="Username">
+    </div>
+
+    <div class="form input-group mb-3">
+      <div class="form input-group-prepend">
+        <span class="input-group-text" id="basic-addon1"><i class="fas fa-key"></i></span>
+      </div>
+      <input [(ngModel)]="logging.password" type="password" class="form-control" placeholder="Password">
+    </div>
+
+    <span id="log-error"></span>
+
+    <button class="btn btn-secondary w-100" (click)="loginUser()">Login</button>
+
+    <button class="text-white nav-link small-text align-content-center" (click)="goToRegister()">
+      <i>Don't have an account? Sign up here!</i>
     </button>
   </div>
-
-  <div class="modal-body align-content-center">
-    <div class="card-title align-content-center">
-
-      <div class="form input-group mb-3">
-        <div class="input-group-prepend">
-          <span class="input-group-text" id="basic-addon1"><i class="fas fa-user"></i></span>
-        </div>
-        <input [(ngModel)]="logging.username" type="text" class="form-control" placeholder="Username">
-      </div>
-
-      <div class="form input-group mb-3">
-        <div class="form input-group-prepend">
-          <span class="input-group-text" id="basic-addon1"><i class="fas fa-key"></i></span>
-        </div>
-        <input [(ngModel)]="logging.password" type="password" class="form-control" placeholder="Password">
-      </div>
-
-      <span id="log-error"></span>
-
-      <button class="btn btn-secondary w-100" (click)="logUser()">Login</button>
-
-      <button class="text-white nav-link small-text align-content-center" (click)="goToRegister()">
-        <i>Don't have an account? Sign up here!</i>
-      </button>
-    </div>
-  </div>
-
 </div>

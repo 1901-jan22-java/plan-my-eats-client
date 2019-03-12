@@ -12,22 +12,22 @@ import { ModalService } from 'src/app/services/modal/modal.service';
 })
 export class RegisterFormComponent implements OnInit {
 
-  registering: User = new User();
+  registering: User;
 
-  constructor(private registerService: RegisterService, private userService: UserService,
-    private modalService: ModalService, private router: Router) {
+  constructor(private registerService: RegisterService,
+    private userService: UserService, private modalService: ModalService) {
+
   }
 
   ngOnInit() {
+
   }
 
   registerUser() {
     this.registerService.register(this.registering).subscribe(resp => {
-      console.log(resp);
       if (resp != null) {
-        this.router.navigate(['user-home']);
         this.closeModal();
-        this.userService.update(resp)
+        this.userService.update(resp);
       }
     });
   }

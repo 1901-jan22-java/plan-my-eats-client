@@ -11,12 +11,16 @@ import { UserService } from 'src/app/services/user/user.service';
 })
 export class UserHomeComponent implements OnInit {
 
-  user: User = null;
+  user: User = new User();
 
-  constructor(private userService: UserService, private router: Router) { }
+  constructor(private userService: UserService, private router: Router) {
+
+  }
 
   ngOnInit() {
-    this.userService.user$.subscribe(resp => this.user = resp);
+    this.userService.user$.subscribe(resp => {
+      this.user = resp;
+    });
   }
 
   public eatIn() {
