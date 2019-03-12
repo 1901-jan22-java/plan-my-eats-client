@@ -11,5 +11,4 @@ export class User {
     recipes: string[];
     restaurants: string[];
     preferences: Preferences[];
-    token: string;
 }

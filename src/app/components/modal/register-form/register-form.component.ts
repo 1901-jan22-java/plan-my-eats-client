@@ -24,8 +24,9 @@ export class RegisterFormComponent implements OnInit {
   registerUser() {
     this.registerService.register(this.registering).subscribe(resp => {
       console.log(resp);
-      if (resp != null && resp instanceof User) {
+      if (resp != null) {
         this.router.navigate(['user-home']);
+        this.closeModal();
         this.userService.update(resp)
       }
     });

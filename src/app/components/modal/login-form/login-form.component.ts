@@ -25,8 +25,9 @@ export class LoginFormComponent implements OnInit {
   logUser() {
     this.loginService.login(this.logging).subscribe(resp => {
       console.log(resp);
-      if (resp != null && resp instanceof User) {
-        this.router.navigate(['user-home']);
+      if (resp != null) {
+        //this.router.navigate(['user-home']);
+        this.closeModal();
         this.userService.update(resp);
       }
     });

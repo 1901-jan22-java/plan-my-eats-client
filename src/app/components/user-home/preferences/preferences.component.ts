@@ -16,37 +16,37 @@ export class PreferencesComponent implements OnInit {
   user: User = null;
 
   preference= [
-    {name: 'Balanced', selected: true}, 
-    {name: 'High-Fiber', selected: false}, 
-    {name: 'High-Protein', selected: false}, 
-    {name: 'Low-Carb', selected: false}, 
-    {name: 'Low-Fat', selected: false}, 
-    {name: 'Low-Sodium', selected: false}, 
-    {name: 'Dairy-Free', selected: false}, 
-    {name: 'Egg-Free', selected: false}, 
-    {name: 'Fish-Free', selected: false}, 
-    {name: 'Gluten-Free', selected: false}, 
-    {name: 'Low-Potassium', selected: false}, 
-    {name: 'Low-Sugar', selected: false}, 
-    {name: 'Peanut-Free', selected: false}, 
-    {name: 'Pescatarian', selected: false}, 
-    {name: 'Pork-Free', selected: false}, 
-    {name: 'Red-Meat-Free', selected: false}, 
-    {name: 'Vegan', selected: false}, 
-    {name: 'Vegatarian', selected: false}, 
-    {name: 'Wheat-Free', selected: false}, 
+    {prefId: 1, name: 'Balanced', selected: true}, 
+    {prefId: 2, name: 'High-Fiber', selected: false}, 
+    {prefId: 3, name: 'High-Protein', selected: false}, 
+    {prefId: 4, name: 'Low-Carb', selected: false}, 
+    {prefId: 5, name: 'Low-Fat', selected: false}, 
+    {prefId: 6, name: 'Low-Sodium', selected: false}, 
+    {prefId: 7, name: 'Dairy-Free', selected: false}, 
+    {prefId: 8, name: 'Egg-Free', selected: false}, 
+    {prefId: 9, name: 'Fish-Free', selected: false}, 
+    {prefId: 10, name: 'Gluten-Free', selected: false}, 
+    {prefId: 11, name: 'Low-Potassium', selected: false}, 
+    {prefId: 12, name: 'Low-Sugar', selected: false}, 
+    {prefId: 13, name: 'Peanut-Free', selected: false}, 
+    {prefId: 14, name: 'Pescatarian', selected: false}, 
+    {prefId: 15, name: 'Pork-Free', selected: false}, 
+    {prefId: 16, name: 'Red-Meat-Free', selected: false}, 
+    {prefId: 17, name: 'Vegan', selected: false}, 
+    {prefId: 18, name: 'Vegatarian', selected: false}, 
+    {prefId: 19, name: 'Wheat-Free', selected: false}, 
   ]
   restrauntPref = [
-    {name: 'Chinese', selected: false}, 
-    {name: 'Mexican', selected: false}, 
-    {name: 'Italian', selected: false}, 
-    {name: 'Japanese', selected: false}, 
-    {name: 'Greek', selected: false}, 
-    {name: 'French', selected: false}, 
-    {name: 'Thai', selected: false}, 
-    {name: 'Spanish', selected: false}, 
-    {name: 'Indian', selected: false}, 
-    {name: 'Mediterranean', selected: false}
+    {prefId: 20, name: 'Chinese', selected: false}, 
+    {prefId: 21, name: 'Mexican', selected: false}, 
+    {prefId: 22, name: 'Italian', selected: false}, 
+    {prefId: 23, name: 'Japanese', selected: false}, 
+    {prefId: 24, name: 'Greek', selected: false}, 
+    {prefId: 25, name: 'French', selected: false}, 
+    {prefId: 26, name: 'Thai', selected: false}, 
+    {prefId: 27, name: 'Spanish', selected: false}, 
+    {prefId: 28, name: 'Indian', selected: false}, 
+    {prefId: 29, name: 'Mediterranean', selected: false}
   ]
 
 
@@ -64,7 +64,7 @@ export class PreferencesComponent implements OnInit {
     {
       if(this.preference[i].selected)
       {  
-        this.user.preferences.push({ name: this.preference[i].name });
+        this.user.preferences.push({ prefId: this.preference[i].prefId, name: this.preference[i].name });
         console.log(this.preference[i].name + " selected");
       }
     }
@@ -72,13 +72,13 @@ export class PreferencesComponent implements OnInit {
     {
       if(this.restrauntPref[i].selected)
       {
-        this.user.preferences.push({ name: this.restrauntPref[i].name });
+        this.user.preferences.push({prefId: this.restrauntPref[i].prefId, name: this.restrauntPref[i].name });
         console.log(this.restrauntPref[i].name + " selected");
       }
     }
     this.prefService.updatePreferences(this.user).subscribe(resp => {
       console.log(resp);
-      if(resp != null && resp instanceof User)
+      if(resp != null)
       {
         this.router.navigate(['user-home']);
         this.userService.update(resp);

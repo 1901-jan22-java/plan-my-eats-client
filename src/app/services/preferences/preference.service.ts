@@ -11,7 +11,7 @@ const httpOptions = {
 })
 export class PreferenceService {
 
-  url: string = 'http://localhost:8081/plan-my-eats/preference';
+  url: string = 'http://localhost:8085/plan-my-eats/preference';
 
   constructor(private http: HttpClient) { }
 
