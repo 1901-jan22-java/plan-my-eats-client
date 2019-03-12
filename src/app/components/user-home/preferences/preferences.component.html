@@ -1,16 +1,20 @@
 <div class="jumbotron jumbotron-fluid">
   <div class="container">
 
-    <h1 class="display-3">Fluid jumbo heading</h1>
-    <p class="lead">Jumbo helper text</p>
+    <h1 class="display-3">User Preferences</h1>
+    <p class="lead">Here are a list of preferences that you can pick from, choose as many as you want and these will be saved and used whenever we search for recipes or restraunts for you.</p>
     
     <hr class="my-2">
-
-    <div class="form-group">
-      <label for=""></label>
-      <input type="text" class="form-control" name="" id="" aria-describedby="helpId" placeholder="">
-      <small id="helpId" class="form-text text-muted">Help text</small>
-    </div>
-
+        <div class="row">
+          <ul *ngFor="let n of preference" class="col-lg">
+              
+                <input type="checkbox" [checked]="n.selected" (change)="n.selected = !n.selected"> {{n.name}}
+              
+          </ul>
+          <ul *ngFor="let l of restrauntPref" class="col-md">
+              <input type="checkbox" [checked]="l.selected" (change)="l.selected = !l.selected"> {{l.name}}
+          </ul>
+        </div>
+      <button type="button" (click)="updatePreferences()">Update Preferences</button>
   </div>
 </div>
