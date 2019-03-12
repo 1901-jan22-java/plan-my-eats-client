@@ -13,7 +13,7 @@ import { nullSafeIsEquivalent } from '@angular/compiler/src/output/output_ast';
 })
 export class LoginFormComponent implements OnInit {
 
-  logging: User = new User();
+  logging: User;
 
   constructor(private loginService: LoginService, 
     private userService: UserService, 

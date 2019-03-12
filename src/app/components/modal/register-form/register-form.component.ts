@@ -12,16 +12,15 @@ import { ModalService } from 'src/app/services/modal/modal.service';
 })
 export class RegisterFormComponent implements OnInit {
 
-  registering: User = new User();
+  registering: User;
 
-  constructor(
-    private registerService: RegisterService, 
-    private userService: UserService, 
-    private modalService: ModalService) {
-      
+  constructor(private registerService: RegisterService,
+    private userService: UserService, private modalService: ModalService) {
+
   }
 
   ngOnInit() {
+
   }
 
   registerUser() {
