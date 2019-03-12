@@ -12,12 +12,13 @@ const httpOptions = {
 })
 export class RegisterService {
 
-  url: string = 'http://localhost:8081/plan-my-eats/register'
+  url: string = 'http://localhost:8085/plan-my-eats/register'
 
   constructor(private http: HttpClient) { 
   }
 
   public register(user: User) {
+    // console.log(user);
     return this.http.post<User>(`${this.url}`, user, httpOptions);
   }
 

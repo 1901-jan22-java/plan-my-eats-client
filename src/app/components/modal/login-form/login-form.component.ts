@@ -4,6 +4,7 @@ import { UserService } from 'src/app/services/user/user.service';
 import { LoginService } from 'src/app/services/login/login.service';
 import { Router } from '@angular/router';
 import { ModalService } from 'src/app/services/modal/modal.service';
+import { nullSafeIsEquivalent } from '@angular/compiler/src/output/output_ast';
 
 @Component({
   selector: 'app-login-form',
@@ -14,19 +15,19 @@ export class LoginFormComponent implements OnInit {
 
   logging: User = new User();
 
-  constructor(private loginService: LoginService, private userService: UserService,
-    private modalService: ModalService, private router: Router) {
+  constructor(private loginService: LoginService, 
+    private userService: UserService, 
+    private modalService: ModalService) {
 
   }
 
   ngOnInit() {
   }
 
-  logUser() {
+  loginUser() {
     this.loginService.login(this.logging).subscribe(resp => {
-      console.log(resp);
-      if (resp != null && resp instanceof User) {
-        this.router.navigate(['user-home']);
+      if (resp != null) {
+        this.closeModal();
         this.userService.update(resp);
       }
     });
@@ -39,5 +40,5 @@ export class LoginFormComponent implements OnInit {
   goToRegister() {
     this.modalService.goToModalView('register');
   }
-  
+
 }

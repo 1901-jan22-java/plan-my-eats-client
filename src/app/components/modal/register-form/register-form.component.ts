@@ -14,8 +14,11 @@ export class RegisterFormComponent implements OnInit {
 
   registering: User = new User();
 
-  constructor(private registerService: RegisterService, private userService: UserService,
-    private modalService: ModalService, private router: Router) {
+  constructor(
+    private registerService: RegisterService, 
+    private userService: UserService, 
+    private modalService: ModalService) {
+      
   }
 
   ngOnInit() {
@@ -23,10 +26,9 @@ export class RegisterFormComponent implements OnInit {
 
   registerUser() {
     this.registerService.register(this.registering).subscribe(resp => {
-      console.log(resp);
-      if (resp != null && resp instanceof User) {
-        this.router.navigate(['user-home']);
-        this.userService.update(resp)
+      if (resp != null) {
+        this.closeModal();
+        this.userService.update(resp);
       }
     });
   }

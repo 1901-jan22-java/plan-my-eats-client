@@ -15,11 +15,11 @@ export class ModalComponent implements OnInit {
 
   ngOnInit() {
     this.modalService.showItem$.subscribe(showModal => {
-      console.log(showModal);
+      // console.log(showModal);
       this.display = showModal;
     });
     this.modalService.modalView$.subscribe(modalView => {
-      console.log(modalView)
+      // console.log(modalView);
       this.modalView = modalView;
     });
   }
