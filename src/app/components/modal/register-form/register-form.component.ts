@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RegisterService } from 'src/app/services/register/register.service';
 import { UserService } from 'src/app/services/user/user.service';
-import { Router } from '@angular/router';
 import { User } from 'src/app/models/user.model';
 import { ModalService } from 'src/app/services/modal/modal.service';
 

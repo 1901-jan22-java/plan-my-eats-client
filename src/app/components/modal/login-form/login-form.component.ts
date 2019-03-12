@@ -2,9 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/models/user.model';
 import { UserService } from 'src/app/services/user/user.service';
 import { LoginService } from 'src/app/services/login/login.service';
-import { Router } from '@angular/router';
 import { ModalService } from 'src/app/services/modal/modal.service';
-import { nullSafeIsEquivalent } from '@angular/compiler/src/output/output_ast';
 
 @Component({
   selector: 'app-login-form',
