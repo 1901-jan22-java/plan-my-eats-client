@@ -56,6 +56,28 @@ export class PreferencesComponent implements OnInit {
 
   ngOnInit() {
     this.userService.user$.subscribe(resp => this.user = resp);
+    if(this.user != null)
+    {
+      for(let i = 0; i < this.user.preferences.length; i++)
+      {
+        for(let k = 0; k < this.preference.length; k++)
+        {
+          if(this.preference[k].prefId === this.user.preferences[i].prefId)
+          {
+            this.preference[k].selected = true;
+            break;
+          }
+        }
+        for(let k = 0; k < this.restrauntPref.length; k++)
+        {
+          if(this.restrauntPref[k].prefId === this.user.preferences[i].prefId)
+          {
+            this.restrauntPref[k].selected = true;
+            break;
+          }
+        }
+      }
+    }
   }
 
   updatePreferences()
