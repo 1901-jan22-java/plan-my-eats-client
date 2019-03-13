@@ -1,5 +1,5 @@
-import { Preferences } from './preferences.model';
-
+import { Preference } from './preference.model';
+import {Restaurant} from './restaurant.model';
 //This is going to be a class that represents our user objects
 export class User {
     username: string;
@@ -9,6 +9,6 @@ export class User {
     age: number;
     gender: string;   
     recipes: string[];
-    restaurants: string[];
-    preferences: Preferences[];
+    restaurants: Set<Restaurant>;
+    preferences: Set<Preference>;
 }
