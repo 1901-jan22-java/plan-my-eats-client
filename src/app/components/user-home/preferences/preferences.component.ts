@@ -13,10 +13,10 @@ import { Router } from '@angular/router';
 export class PreferencesComponent implements OnInit {
 
   
-  user: User = null;
+  user: User = new User();
 
   preference= [
-    {prefId: 1, name: 'Balanced', selected: true}, 
+    {prefId: 1, name: 'Balanced', selected: false}, 
     {prefId: 2, name: 'High-Fiber', selected: false}, 
     {prefId: 3, name: 'High-Protein', selected: false}, 
     {prefId: 4, name: 'Low-Carb', selected: false}, 
@@ -56,7 +56,7 @@ export class PreferencesComponent implements OnInit {
 
   ngOnInit() {
     this.userService.user$.subscribe(resp => this.user = resp);
-    if(this.user != null)
+    if(this.user != undefined)
     {
       for(let i = 0; i < this.user.preferences.length; i++)
       {
@@ -82,6 +82,7 @@ export class PreferencesComponent implements OnInit {
 
   updatePreferences()
   {
+    this.user.preferences.splice(0, this.user.preferences.length);
     for(let i = 0; i < this.preference.length; i++)
     {
       if(this.preference[i].selected)
