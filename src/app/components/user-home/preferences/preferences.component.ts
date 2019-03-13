@@ -34,7 +34,7 @@ export class PreferencesComponent implements OnInit {
     { prefId: 17, name: 'Vegan', selected: false },
     { prefId: 18, name: 'Vegatarian', selected: false },
     { prefId: 19, name: 'Wheat-Free', selected: false },
-  ]
+  ];
   restrauntPref = [
     { prefId: 20, name: 'Chinese', selected: false },
     { prefId: 21, name: 'Mexican', selected: false },
@@ -46,11 +46,10 @@ export class PreferencesComponent implements OnInit {
     { prefId: 27, name: 'Spanish', selected: false },
     { prefId: 28, name: 'Indian', selected: false },
     { prefId: 29, name: 'Mediterranean', selected: false }
-  ]
+  ];
 
 
-  constructor(private userService: UserService, private prefService: PreferenceService,
-    private router: Router) {
+  constructor(private userService: UserService, private prefService: PreferenceService) {
 
   }
 
@@ -77,7 +76,6 @@ export class PreferencesComponent implements OnInit {
     this.prefService.updatePreferences(this.user).subscribe(resp => {
       console.log(resp);
       if (resp != null) {
-        this.router.navigate(['user-home']);
         this.userService.update(resp);
       }
     });
