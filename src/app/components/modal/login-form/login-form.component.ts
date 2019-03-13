@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/models/user.model';
 import { UserService } from 'src/app/services/user/user.service';
-import { LoginService } from 'src/app/services/login/login.service';
 import { ModalService } from 'src/app/services/modal/modal.service';
 
 @Component({
@@ -13,26 +12,24 @@ export class LoginFormComponent implements OnInit {
 
   logging: User = new User();
 
-  constructor(private loginService: LoginService, 
-    private userService: UserService, 
+  constructor(private userService: UserService, 
     private modalService: ModalService) {
-
   }
 
   ngOnInit() {
   }
 
   loginUser() {
-    this.loginService.login(this.logging).subscribe(resp => {
+    this.userService.requestLogin(this.logging).subscribe(resp => {
       if (resp != null) {
-        this.closeModal();
-        this.userService.update(resp);
+        this.modalService.close();
+        this.userService.login(resp);
       }
     });
   }
 
   closeModal() {
-    this.modalService.toggle();
+    this.modalService.close();
   }
 
   goToRegister() {

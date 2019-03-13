@@ -30,8 +30,7 @@ import { SelectionComponent } from './components/selection/selection.component';
 
 // SERVICES
 import { ModalService } from './services/modal/modal.service';
-import { LoginService } from './services/login/login.service';
-import { RegisterService } from './services/register/register.service';
+import { UserService } from './services/user/user.service';
 import { MapService } from './services/map/map.service';
 import { AlertComponent } from './components/alert/alert.component'
 
@@ -75,10 +74,9 @@ import { TestApiService } from './services/testapi/test-api.service';
     }),
   ],
   providers: [
-    LoginService,
-    MapService,
     ModalService,
-    RegisterService,
+    UserService,
+    MapService,
 
     // NOT PART OF THE APP!
     TestApiService

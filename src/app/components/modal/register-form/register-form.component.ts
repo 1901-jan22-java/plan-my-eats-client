@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { RegisterService } from 'src/app/services/register/register.service';
-import { UserService } from 'src/app/services/user/user.service';
+
 import { User } from 'src/app/models/user.model';
+
+import { UserService } from 'src/app/services/user/user.service';
 import { ModalService } from 'src/app/services/modal/modal.service';
 
 @Component({
@@ -13,20 +14,18 @@ export class RegisterFormComponent implements OnInit {
 
   registering: User = new User();
 
-  constructor(private registerService: RegisterService,
-    private userService: UserService, private modalService: ModalService) {
-
+  constructor(private userService: UserService,
+    private modalService: ModalService) {
   }
 
   ngOnInit() {
-
   }
 
   registerUser() {
-    this.registerService.register(this.registering).subscribe(resp => {
+    this.userService.register(this.registering).subscribe(resp => {
       if (resp != null) {
         this.closeModal();
-        this.userService.update(resp);
+        this.userService.login(resp);
       }
     });
   }
