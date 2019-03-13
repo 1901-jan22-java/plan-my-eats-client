@@ -1,5 +1,7 @@
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 
+**/tmp
+
 # compiled output
 /dist
 /dist/
@@ -65,10 +67,6 @@ modules/.vscode
 
 # Don't check in secret files
 *secret.js
-
-# Ignore npm/yarn debug log
-npm-debug.log
-yarn-error.log
 
 # build-analytics
 .build-analytics
