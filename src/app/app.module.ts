@@ -6,6 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AgmCoreModule } from '@agm/core';
+import {MatTableModule} from '@angular/material';
 
 // COMPONENTS
 import { AppComponent } from './app.component';
@@ -70,9 +71,12 @@ import { TestApiService } from './services/testapi/test-api.service';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    MatTableModule,
     AgmCoreModule.forRoot({
       apiKey: ""
     }),
+
+
   ],
   providers: [
     LoginService,
