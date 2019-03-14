@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/models/user.model';
 import { UserService } from 'src/app/services/user/user.service';
 import { PreferenceService } from 'src/app/services/preferences/preference.service';
-import { Router } from '@angular/router';
 
 
 @Component({
@@ -15,7 +14,7 @@ export class PreferencesComponent implements OnInit {
   user: User = new User();
 
   preference = [
-    { prefId: 1, name: 'Balanced', selected: true },
+    { prefId: 1, name: 'Balanced', selected: false },
     { prefId: 2, name: 'High-Fiber', selected: false },
     { prefId: 3, name: 'High-Protein', selected: false },
     { prefId: 4, name: 'Low-Carb', selected: false },
@@ -34,7 +33,7 @@ export class PreferencesComponent implements OnInit {
     { prefId: 17, name: 'Vegan', selected: false },
     { prefId: 18, name: 'Vegatarian', selected: false },
     { prefId: 19, name: 'Wheat-Free', selected: false },
-  ];
+  ]
   restrauntPref = [
     { prefId: 20, name: 'Chinese', selected: false },
     { prefId: 21, name: 'Mexican', selected: false },
@@ -55,6 +54,24 @@ export class PreferencesComponent implements OnInit {
 
   ngOnInit() {
     this.userService.user$.subscribe(resp => this.user = resp);
+
+    if (this.user != undefined) {
+      for (let i = 0; i < this.user.preferences.size; i++) {
+        for (let k = 0; k < this.preference.length; k++) {
+          if (this.preference[k].prefId === this.user.preferences[i].prefId) {
+            this.preference[k].selected = true;
+            break;
+          }
+        }
+        for (let k = 0; k < this.restrauntPref.length; k++) {
+          if (this.restrauntPref[k].prefId === this.user.preferences[i].prefId) {
+            this.restrauntPref[k].selected = true;
+            break;
+          }
+        }
+      }
+    }
+    
   }
 
   updatePreferences() {

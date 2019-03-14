@@ -6,8 +6,33 @@
       <hr class="my-2">
       <p>More info: RESTAURANT LIST HERE!</p>
       <p class="lead">
+
+        <mat-table [dataSource]="dataSource">
+
+          <ng-container matColumnDef="name">
+            <mat-header-cell *matHeaderCellDef>name</mat-header-cell>
+            <mat-cell *matCellDef="let name"></mat-cell>
+          </ng-container>
+          
+          <ng-container matColumnDef="type">
+            <mat-header-cell *matHeaderCellDef>type</mat-header-cell>
+            <mat-cell *matCellDef="let type"></mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="location">
+            <mat-header-cell *matHeaderCellDef>location</mat-header-cell>
+            <mat-cell *matCellDef="let location"></mat-cell>
+          </ng-container>
+
+          <mat-header-row *matHeaderRowDef="tableColumns"></mat-header-row>
+          <mat-row *matRowDef="let row; columns: tableColumns">install</mat-row>
+
+        </mat-table>
+
         <button class="btn btn-primary btn-lg">Surprise Me!</button>
+
       </p>
+
       <app-map></app-map>
     </div>
   </div>

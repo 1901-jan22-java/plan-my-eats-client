@@ -45,7 +45,7 @@ export class UserService {
   }
 
   public requestLogin(user: User) {
-    //console.log(user);
+    // console.log(user);
     return this.http.post<User>(`${this.loginUrl}`, user, httpOptions);
   }
 
