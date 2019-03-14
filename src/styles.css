@@ -6,7 +6,13 @@ body {
 }
 
 footer {
+  display: inline-block; /* change the default display type to inline-block */
+  overflow: hidden;      /* hide the overflow */
   color: white;
+  position: absolute;
+  bottom: 0;
+  width: 200px;
+  height: 60px;
 }
 
 * [class$='-container'] {
