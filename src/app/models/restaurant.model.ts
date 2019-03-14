@@ -1,6 +1,5 @@
 export class Restaurant {
     name: string;
-    type: string;
-    location: string;
+    address: string;
     imgRef: string;
 }
