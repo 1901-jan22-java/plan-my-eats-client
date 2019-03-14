@@ -1,4 +1,5 @@
 <div class="eat-out-container">
+<<<<<<< HEAD
   <div class="jumbotron jumbotron-fluid eat-out-container-item">
     <div class="container">
       <h1 class="display-3">Eating Out!</h1>
@@ -6,6 +7,31 @@
       <hr class="my-2">
       <p>More info: RESTAURANT LIST HERE!</p>
       <p class="lead">
+=======
+    <div class="jumbotron jumbotron-fluid eat-out-container-item">
+      <div class="container">
+        <h1 class="display-3">Eating Out!</h1>
+        <p class="lead">Choose a restaurant! :D</p>
+        <hr class="my-2">
+        <p>More info: RESTAURANT LIST HERE!</p>
+        <p class="lead">
+          <mat-table[dataSource]="dataSource">
+           <ng-container matColumnDef = "name">
+             <mat-header-cell *matHeaderCellDef>name</mat-header-cell>
+             <mat-cell *matCellDef = "let name"></mat-cell>
+           </ng-container>
+           <ng-container matColumnDef = "address">
+             <mat-header-cell *matHeaderCellDef>address</mat-header-cell>
+             <mat-cell *matCellDef = "let address"></mat-cell>
+           </ng-container>
+           <ng-container matColumnDef = "imgRef">
+              <mat-header-cell *matHeaderCellDef>photo</mat-header-cell>
+              <mat-cell *matCellDef = "let imgRef"></mat-cell>
+            </ng-container>
+            <mat-header-row *matHeaderRowDef = "tableColumns"></mat-header-row>
+            <mat-row *matRowDef = "let row; columns: tableColumns">install</mat-row>
+          </mat-table>
+>>>>>>> development
 
         <mat-table [dataSource]="dataSource">
 

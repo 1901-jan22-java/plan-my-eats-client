@@ -8,8 +8,9 @@ import { RestaurantService } from 'src/app/services/restaurant/restaurant.servic
   styleUrls: ['./eat-out.component.css']
 })
 export class EatOutComponent implements OnInit {
-  user: User = null;
-  tableColumns: string[] = ['name', 'type', 'location'];
+
+  user: User = new User();
+  tableColumns: string[] = ['name', 'address', 'imgRef'];
   dataSource = [];
 
   constructor(private restaurantService: RestaurantService) { }
