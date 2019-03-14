@@ -1,65 +1,37 @@
-<div class="eat-out-container">
-<<<<<<< HEAD
-  <div class="jumbotron jumbotron-fluid eat-out-container-item">
-    <div class="container">
-      <h1 class="display-3">Eating Out!</h1>
-      <p class="lead">Choose a restaurant! :D</p>
-      <hr class="my-2">
-      <p>More info: RESTAURANT LIST HERE!</p>
-      <p class="lead">
-=======
-    <div class="jumbotron jumbotron-fluid eat-out-container-item">
-      <div class="container">
-        <h1 class="display-3">Eating Out!</h1>
-        <p class="lead">Choose a restaurant! :D</p>
-        <hr class="my-2">
-        <p>More info: RESTAURANT LIST HERE!</p>
-        <p class="lead">
-          <mat-table[dataSource]="dataSource">
-           <ng-container matColumnDef = "name">
-             <mat-header-cell *matHeaderCellDef>name</mat-header-cell>
-             <mat-cell *matCellDef = "let name"></mat-cell>
-           </ng-container>
-           <ng-container matColumnDef = "address">
-             <mat-header-cell *matHeaderCellDef>address</mat-header-cell>
-             <mat-cell *matCellDef = "let address"></mat-cell>
-           </ng-container>
-           <ng-container matColumnDef = "imgRef">
-              <mat-header-cell *matHeaderCellDef>photo</mat-header-cell>
-              <mat-cell *matCellDef = "let imgRef"></mat-cell>
-            </ng-container>
-            <mat-header-row *matHeaderRowDef = "tableColumns"></mat-header-row>
-            <mat-row *matRowDef = "let row; columns: tableColumns">install</mat-row>
-          </mat-table>
->>>>>>> development
+<div class="jumbotron jumbotron-fluid eat-out-container">
+  <div class="container eat-out-container-item">
 
-        <mat-table [dataSource]="dataSource">
+    <h1 class="display-3">Eating Out!</h1>
+    <p class="lead">Choose a restaurant! :D</p>
 
-          <ng-container matColumnDef="name">
-            <mat-header-cell *matHeaderCellDef>name</mat-header-cell>
-            <mat-cell *matCellDef="let name"></mat-cell>
-          </ng-container>
-          
-          <ng-container matColumnDef="type">
-            <mat-header-cell *matHeaderCellDef>type</mat-header-cell>
-            <mat-cell *matCellDef="let type"></mat-cell>
-          </ng-container>
+    <hr class="my-2">
+    
+    <mat-table [dataSource]="dataSource">
 
-          <ng-container matColumnDef="location">
-            <mat-header-cell *matHeaderCellDef>location</mat-header-cell>
-            <mat-cell *matCellDef="let location"></mat-cell>
-          </ng-container>
+      <ng-container matColumnDef="name">
+        <mat-header-cell *matHeaderCellDef>name</mat-header-cell>
+        <mat-cell *matCellDef="let name"></mat-cell>
+      </ng-container>
 
-          <mat-header-row *matHeaderRowDef="tableColumns"></mat-header-row>
-          <mat-row *matRowDef="let row; columns: tableColumns">install</mat-row>
+      <ng-container matColumnDef="type">
+        <mat-header-cell *matHeaderCellDef>type</mat-header-cell>
+        <mat-cell *matCellDef="let type"></mat-cell>
+      </ng-container>
 
-        </mat-table>
+      <ng-container matColumnDef="location">
+        <mat-header-cell *matHeaderCellDef>location</mat-header-cell>
+        <mat-cell *matCellDef="let location"></mat-cell>
+      </ng-container>
 
-        <button class="btn btn-primary btn-lg">Surprise Me!</button>
-
-      </p>
-
-      <app-map></app-map>
-    </div>
+      <mat-header-row *matHeaderRowDef="tableColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: tableColumns">install</mat-row>
+    </mat-table>
+    
+    <hr class="my-2">
+    <p class="lead">
+      <button class="btn btn-primary btn-lg">Surprise Me!</button>
+    </p>
+    <hr class="my-2">
+    <app-map></app-map>
   </div>
 </div>
