@@ -52,8 +52,8 @@ speed-measure-plugin.json
 **/e2e
 **/e2e/**
 **/.e2e/**
-**/package.json
-**/package-lock.json
+# **/package.json
+# **/package-lock.json
 
 /bazel-out
 /integration/bazel/bazel-*
