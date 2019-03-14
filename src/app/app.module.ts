@@ -27,7 +27,6 @@ import { RegisterFormComponent } from './components/modal/register-form/register
 
 // I don't know what to do with these yet
 import { PreferencesComponent } from './components/user-home/preferences/preferences.component';
-import { SelectionComponent } from './components/selection/selection.component';
 
 // SERVICES
 import { ModalService } from './services/modal/modal.service';
@@ -53,8 +52,6 @@ import { TestApiService } from './services/testapi/test-api.service';
     EatOutComponent,
     MapComponent,
     PreferencesComponent,
-
-    SelectionComponent,
 
     ModalComponent,
     LoginFormComponent,
