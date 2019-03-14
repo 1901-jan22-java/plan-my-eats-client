@@ -18,8 +18,7 @@ export class UserService {
   private _loggedIn: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
   loggedIn$: Observable<boolean>;
 
-  private loginUrl: string = 'http://localhost:8085/plan-my-eats/login';
-  private registerUrl: string = 'http://localhost:8085/plan-my-eats/register';
+  private url: string = 'http://localhost:8085/plan-my-eats/';
 
   constructor(private http: HttpClient, private router: Router) {
     this.user$ = this._user.asObservable();
@@ -27,11 +26,12 @@ export class UserService {
   }
 
   public update(user: User) {
+    console.log('Updating user: ' + user);
     this._user.next(user);
   }
 
   public login(user: User) {
-    console.log("Logging in user: " + user);
+    console.log('Logging in user: ' + user);
     this._loggedIn.next(true);
     this._user.next(user);
     this.router.navigate(['user-home']);
@@ -46,12 +46,12 @@ export class UserService {
 
   public requestLogin(user: User) {
     // console.log(user);
-    return this.http.post<User>(`${this.loginUrl}`, user, httpOptions);
+    return this.http.post<User>(`${this.url}login`, user, httpOptions);
   }
 
   public register(user: User) {
     // console.log(user);
-    return this.http.post<User>(`${this.registerUrl}`, user, httpOptions);
+    return this.http.post<User>(`${this.url}register`, user, httpOptions);
   }
 
 
