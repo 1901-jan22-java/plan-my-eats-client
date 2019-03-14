@@ -47,6 +47,7 @@ speed-measure-plugin.json
 **/.tern-project
 **/node_modules
 **/node_modules/**
+**/.node_modules
 **/.node_modules/**
 **/e2e
 **/e2e/**
