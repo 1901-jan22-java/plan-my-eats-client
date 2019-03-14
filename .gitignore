@@ -49,7 +49,7 @@ speed-measure-plugin.json
 **/node_modules/**
 **/.node_modules
 **/.node_modules/**
-**/e2e
+# **/e2e
 **/e2e/**
 **/.e2e/**
 # **/package.json
