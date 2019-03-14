@@ -6,28 +6,29 @@ import { Observable, Subject } from 'rxjs';
   providedIn: 'root'
 })
 export class AlertService {
+
   private subject = new Subject<any>();
   private keepAfterNavigationChange = false;
 
-  constructor(private router: Router) { 
+  constructor(private router: Router) {
     router.events.subscribe(event => {
-      if(event instanceof NavigationStart) {
-        //only keep for a single location change
+      if (event instanceof NavigationStart) {
+        // only keep for a single location change
         this.keepAfterNavigationChange = false;
       } else {
-        //clear the alert
+        // clear the alert
         this.subject.next();
       }
     });
   }
 
-  //Green alert showing success message
+  // Green alert showing success message
   success(message: string, keepAfterNavigationChange = false) {
     this.keepAfterNavigationChange = keepAfterNavigationChange;
     this.subject.next({ type: 'success', text: message });
   }
 
-  //Red alert showing an error message
+  // Red alert showing an error message
   error(message: string, keepAfterNavigationChange = false) {
     this.keepAfterNavigationChange = keepAfterNavigationChange;
     this.subject.next({ type: 'error', text: message });
@@ -36,4 +37,5 @@ export class AlertService {
   getMessage(): Observable<any> {
     return this.subject.asObservable();
   }
+  
 }
