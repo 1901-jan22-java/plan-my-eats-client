@@ -10,8 +10,10 @@ body {
 }
 
 footer {
-  display: inline-block; /* change the default display type to inline-block */
-  overflow: hidden;      /* hide the overflow */
+  display: inline-block;
+  /* change the default display type to inline-block */
+  overflow: hidden;
+  /* hide the overflow */
   color: white;
   position: absolute;
   bottom: 0;
@@ -58,13 +60,23 @@ footer {
 }
 
 @-webkit-keyframes spin {
-  0% { -webkit-transform: rotate(0deg); }
-  100% { -webkit-transform: rotate(360deg); }
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
 }
 
 @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 /* Add animation to "page content" */
@@ -77,16 +89,25 @@ footer {
 }
 
 @-webkit-keyframes animatebottom {
-  from { bottom:-100px; opacity:0 } 
-  to { bottom:0px; opacity:1 }
+  from {
+    bottom: -100px;
+    opacity: 0
+  }
+
+  to {
+    bottom: 0px;
+    opacity: 1
+  }
 }
 
-@keyframes animatebottom { 
-  from{ bottom:-100px; opacity:0 } 
-  to{ bottom:0; opacity:1 }
-}
+@keyframes animatebottom {
+  from {
+    bottom: -100px;
+    opacity: 0
+  }
 
-#myDiv {
-  display: none;
-  text-align: center;
+  to {
+    bottom: 0;
+    opacity: 1
+  }
 }
