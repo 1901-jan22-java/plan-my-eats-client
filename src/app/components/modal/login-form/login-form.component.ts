@@ -36,11 +36,10 @@ export class LoginFormComponent implements OnInit {
   }
 
   loginUser() {
-    this.authenticationServiceService.login(this.logging)
+    this.userService.login(this.logging)
     .pipe(first())
     .subscribe(
       data => {
-        this.router.navigate(['user-home']);
         this.closeModal();
       },
       error => {

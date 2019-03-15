@@ -21,8 +21,7 @@ export class UserHomeComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.user = this.authenticationService.currentUserValue;
-    console.log(this.user);
+    this.userService.user$.subscribe(resp => this.user = resp);
   }
 
   public eatIn() {
