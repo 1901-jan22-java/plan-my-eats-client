@@ -3,12 +3,12 @@ import { Routes, RouterModule } from '@angular/router';
 
 // COMPONENTS WE USE
 import { HomeComponent } from './components/home/home.component';
-import { PreferencesComponent } from './components/home/preferences/preferences.component';
-import { EatInComponent } from './components/home/eat-in/eat-in.component';
-import { EatOutComponent } from './components/home/eat-out/eat-out.component';
 
 // NOT PART OF THE APP
 import { TestApiComponent } from './components/test-api/test-api.component';
+import { PreferencesComponent } from './components/preferences/preferences.component';
+import { EatInComponent } from './components/eat-in/eat-in.component';
+import { EatOutComponent } from './components/eat-out/eat-out.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
