@@ -6,7 +6,6 @@ import { HomeComponent } from './components/home/home.component';
 import { PreferencesComponent } from './components/user-home/preferences/preferences.component';
 import { EatInComponent } from './components/user-home/eat-in/eat-in.component';
 import { EatOutComponent } from './components/user-home/eat-out/eat-out.component';
-import { SelectionComponent } from './components/selection/selection.component';
 import { UserHomeComponent } from './components/user-home/user-home.component';
 
 // NOT PART OF THE APP
@@ -19,7 +18,6 @@ const routes: Routes = [
   {path: 'preferences', component: PreferencesComponent},
   {path: 'eat-in', component: EatInComponent},
   {path: 'eat-out', component: EatOutComponent},
-  {path: 'selection', component: SelectionComponent},
   
   // NOT PART OF THE APP
   {path: 'test', component: TestApiComponent},

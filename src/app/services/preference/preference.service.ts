@@ -15,8 +15,8 @@ export class PreferenceService {
 
   constructor(private http: HttpClient) { }
 
-  public updatePreferences(user: User)
-  {
-    return this.http.post<User>(`${this.url}`, user, httpOptions);
+  public updatePreferences(user: User) {
+    return this.http.put<User>(`${this.url}`, user, httpOptions);
   }
+
 }

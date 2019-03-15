@@ -1,13 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/models/user.model';
 import { UserService } from 'src/app/services/user/user.service';
-import { LoginService } from 'src/app/services/login/login.service';
-import { Router } from '@angular/router';
 import { ModalService } from 'src/app/services/modal/modal.service';
 import { nullSafeIsEquivalent } from '@angular/compiler/src/output/output_ast';
 import { first } from 'rxjs/operators';
 import { AlertService } from '../../../services/authentication/alert.service';
 import { AuthenticationService } from '../../../services/authentication/authentication.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login-form',
@@ -20,7 +19,7 @@ export class LoginFormComponent implements OnInit {
   returnUrl: string;
   loading = false;
 
-  constructor(private loginService: LoginService, 
+  constructor(
     private alertService: AlertService,
     private router: Router,
     private userService: UserService, 
@@ -51,7 +50,7 @@ export class LoginFormComponent implements OnInit {
   }
 
   closeModal() {
-    this.modalService.toggle();
+    this.modalService.close();
   }
 
   goToRegister() {

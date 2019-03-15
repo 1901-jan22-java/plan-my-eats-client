@@ -1,12 +1,19 @@
 // MODULES
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
-import { HttpClientModule } from '@angular/common/http';
+import { BrowserModule } from '@angular/platform-browser';
+
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
+
+import { HttpClientModule } from '@angular/common/http';
+
+import { MatTableModule, MatPaginatorModule } from '@angular/material';
+
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+
 import { AgmCoreModule } from '@agm/core';
-import {MatTableModule} from '@angular/material';
 
 // COMPONENTS
 import { AppComponent } from './app.component';
@@ -27,12 +34,10 @@ import { RegisterFormComponent } from './components/modal/register-form/register
 
 // I don't know what to do with these yet
 import { PreferencesComponent } from './components/user-home/preferences/preferences.component';
-import { SelectionComponent } from './components/selection/selection.component';
 
 // SERVICES
 import { ModalService } from './services/modal/modal.service';
-import { LoginService } from './services/login/login.service';
-import { RegisterService } from './services/register/register.service';
+import { UserService } from './services/user/user.service';
 import { MapService } from './services/map/map.service';
 import { AlertComponent } from './components/alert/alert.component'
 
@@ -41,6 +46,7 @@ import { TestApiComponent } from './components/test-api/test-api.component';
 import { TestApiService } from './services/testapi/test-api.service';
 
 @NgModule({
+
   declarations: [
     AppComponent,
 
@@ -55,8 +61,6 @@ import { TestApiService } from './services/testapi/test-api.service';
     MapComponent,
     PreferencesComponent,
 
-    SelectionComponent,
-
     ModalComponent,
     LoginFormComponent,
     RegisterFormComponent,
@@ -65,28 +69,39 @@ import { TestApiService } from './services/testapi/test-api.service';
     // NOT PART OF THE APP
     TestApiComponent,
   ],
+
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+
     FormsModule,
     ReactiveFormsModule,
+
     MatTableModule,
+    MatPaginatorModule,
+
+    BrowserAnimationsModule,
+    NoopAnimationsModule,
+
     AgmCoreModule.forRoot({
       apiKey: ""
     }),
 
-
   ],
+
   providers: [
-    LoginService,
-    MapService,
     ModalService,
-    RegisterService,
+    UserService,
+    MapService,
 
     // NOT PART OF THE APP!
     TestApiService
   ],
+
   bootstrap: [AppComponent]
+
 })
-export class AppModule { }
+export class AppModule {
+
+}

@@ -1,3 +1,11 @@
-app-map{
+app-map {
     height: 500px;
+}
+
+table {
+    width: 100%;
+}
+
+button {
+    margin: 10px;
 }

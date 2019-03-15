@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http'
 
 const httpOptions = {
-  headers: new HttpHeaders({'Content-Type': 'text/plain'})
+  headers: new HttpHeaders({ 'Content-Type': 'text/plain' })
 };
 
 @Injectable({
@@ -11,7 +11,8 @@ const httpOptions = {
 
 export class TestApiService {
 
-  url: string = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?'
+  serverUrl: string = 'http://localhost:8085/plan-my-eats/testing';
+  url: string = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?';
 
   radius: string = '&radius=1500';
   type: string = '&type=restaurant';
@@ -20,11 +21,13 @@ export class TestApiService {
   constructor(private http: HttpClient) { }
 
   public getData(location: string, keyword: string) {
-    return this.http.post<string>('http://localhost:8085/plan-my-eats/testing',`${this.url}&location=${location}${this.radius}${this.type}&keyword=${keyword}${this.key}`, httpOptions);
+    return this.http.post<string>(`${this.serverUrl}`,
+      `${this.url}&location=${location}${this.radius}${this.type}&keyword=${keyword}${this.key}`,
+      httpOptions);
   }
 
-  public hitdata(location: string, keyword: string) {
-    return this.http.get<string>('http://localhost:8085/plan-my-eats/testing', httpOptions);
+  public test() {
+    return this.http.get<string>(`${this.serverUrl}`, httpOptions);
   }
-  
+
 }

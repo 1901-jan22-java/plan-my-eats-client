@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalService } from 'src/app/services/modal/modal.service';
+import { UserService } from 'src/app/services/user/user.service';
 
 @Component({
   selector: 'app-nav-options',
@@ -8,12 +9,15 @@ import { ModalService } from 'src/app/services/modal/modal.service';
 })
 export class NavOptionsComponent implements OnInit {
 
-  loggedIn: boolean;
+  loggedIn: boolean = false;
 
-  constructor(private modalService: ModalService) { }
+  constructor(private userService: UserService,
+    private modalService: ModalService) {
+      
+  }
 
   ngOnInit() {
-
+    this.userService.loggedIn$.subscribe(resp => this.loggedIn = resp);
   }
 
   goToLogin() {
@@ -22,6 +26,10 @@ export class NavOptionsComponent implements OnInit {
 
   goToRegister() {
     this.modalService.goToModalView('register');
+  }
+
+  logoutUser() {
+    this.userService.logout();
   }
 
 }

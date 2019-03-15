@@ -1,3 +1,6 @@
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css";
+
 /* You can add global styles to this file, and also import other style files */
 body {
   /* background-color: #191c20; */
@@ -6,7 +9,13 @@ body {
 }
 
 footer {
+  display: inline-block; /* change the default display type to inline-block */
+  overflow: hidden;      /* hide the overflow */
   color: white;
+  position: absolute;
+  bottom: 0;
+  width: 200px;
+  height: 60px;
 }
 
 * [class$='-container'] {
@@ -25,4 +34,6 @@ footer {
 .jumbotron {
   /* opacity: 0.75; */
   background: rgba(inherit, inherit, inherit, 0.75);
+  /* @apply .text-white; */
+  /* @apply .bg-dark; */
 }
