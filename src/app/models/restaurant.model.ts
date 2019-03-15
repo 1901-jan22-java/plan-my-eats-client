@@ -1,5 +1,7 @@
-export class Restaurant {
-    name: string;
-    address: string;
-    imgRef: string;
+export interface Restaurant {
+	restaurantId: number;
+	name: string;
+	location: string;
+	type: string;
+	imgRef: string;
 }

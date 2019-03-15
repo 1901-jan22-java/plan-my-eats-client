@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { User } from 'src/app/models/user.model';
-import { UserService } from 'src/app/services/user/user.service';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { RestaurantService } from 'src/app/services/restaurant/restaurant.service';
+import { MatPaginator, MatTableDataSource } from '@angular/material';
+import { Restaurant } from 'src/app/models/restaurant.model';
+
 @Component({
   selector: 'app-eat-out',
   templateUrl: './eat-out.component.html',
@@ -9,17 +10,25 @@ import { RestaurantService } from 'src/app/services/restaurant/restaurant.servic
 })
 export class EatOutComponent implements OnInit {
 
-  user: User = new User();
-  tableColumns: string[] = ['name', 'address', 'imgRef'];
-  dataSource = [];
+  // user: User = new User();
+  tableColumns: string[] = [
+    'restaurantId',
+    'name',
+    'location',
+    'type',
+    'imgRef'
+  ];
+  dataSource: MatTableDataSource<Restaurant> = new MatTableDataSource<Restaurant>();
+
+  @ViewChild(MatPaginator)
+  paginator: MatPaginator;
 
   constructor(private restaurantService: RestaurantService) { }
 
   ngOnInit() {
-    this.restaurantService.getRestaurants().subscribe(restaurant =>{
-      this.dataSource=restaurant;
+    this.restaurantService.getRestaurants().subscribe(restaurants => {
+      this.dataSource = new MatTableDataSource<Restaurant>(restaurants);
     });
-
   }
-
+  
 }

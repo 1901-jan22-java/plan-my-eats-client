@@ -1,5 +1,4 @@
-export class Preference
-{
+export interface Preference {
     prefId: number;
     name: string;
 }

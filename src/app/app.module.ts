@@ -1,12 +1,17 @@
 // MODULES
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
-import { HttpClientModule } from '@angular/common/http';
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
+
+import { HttpClientModule } from '@angular/common/http';
+
+import { MatTableModule, MatPaginatorModule } from '@angular/material';
+
 import { AgmCoreModule } from '@agm/core';
-import { MatTableModule } from '@angular/material';
 
 // COMPONENTS
 import { AppComponent } from './app.component';
@@ -63,15 +68,19 @@ import { TestApiService } from './services/testapi/test-api.service';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
+
     FormsModule,
     ReactiveFormsModule,
+
     MatTableModule,
+    MatPaginatorModule,
+
     AgmCoreModule.forRoot({
       apiKey: ""
     }),
-
 
   ],
   providers: [

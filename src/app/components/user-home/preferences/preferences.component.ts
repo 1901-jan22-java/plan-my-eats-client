@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/models/user.model';
 import { UserService } from 'src/app/services/user/user.service';
-import { PreferenceService } from 'src/app/services/preferences/preference.service';
+import { PreferenceService } from 'src/app/services/preference/preference.service';
 
 
 @Component({
@@ -71,7 +71,7 @@ export class PreferencesComponent implements OnInit {
         }
       }
     }
-    
+
   }
 
   updatePreferences() {
@@ -98,4 +98,5 @@ export class PreferencesComponent implements OnInit {
     });
 
   }
+
 }

@@ -16,8 +16,8 @@ export class RestaurantService {
 
   constructor(private http: HttpClient) { }
 
-  public getRestaurants()
-  {
+  public getRestaurants() {
     return this.http.get<Restaurant[]>(`${this.url}`, httpOptions);
   }
+  
 }
