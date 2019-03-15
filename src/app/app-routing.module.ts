@@ -13,9 +13,10 @@ import { EatOutComponent } from './components/eat-out/eat-out.component';
 const routes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
   {path: 'home', component: HomeComponent},
-  {path: 'preferences', component: PreferencesComponent},
+
   {path: 'eat-in', component: EatInComponent},
   {path: 'eat-out', component: EatOutComponent},
+  {path: 'preferences', component: PreferencesComponent},
   
   // NOT PART OF THE APP
   {path: 'test', component: TestApiComponent},
