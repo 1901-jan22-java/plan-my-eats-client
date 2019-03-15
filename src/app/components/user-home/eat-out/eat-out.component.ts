@@ -11,6 +11,7 @@ import { Restaurant } from 'src/app/models/restaurant.model';
 export class EatOutComponent implements OnInit {
 
   // user: User = new User();
+  // restaurants: Set<Restaurant>;
   tableColumns: string[] = [
     'restaurantId',
     'name',

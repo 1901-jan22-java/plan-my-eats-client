@@ -11,9 +11,10 @@ export class MapService {
 
   public _show: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
   public show$: Observable<boolean> = this._show.asObservable();
-  public _locations: BehaviorSubject<Set<Restaurant>> = new BehaviorSubject<Set<Restaurant>>(new Set<Restaurant>());
-  public locations$: Observable<Set<Restaurant>> = this._locations.asObservable();
-  
+
+  public _locations: BehaviorSubject<Set<MapLocation>> = new BehaviorSubject<Set<MapLocation>>(new Set<MapLocation>());
+  public locations$: Observable<Set<MapLocation>> = this._locations.asObservable();
+
   constructor(private http: HttpClient) {
     this.show$ = this._show.asObservable();
   }
@@ -26,7 +27,19 @@ export class MapService {
     this._show.next(!this._show.getValue());
   }
 
-  addLocation(newLoc: Restaurant) {
+  open() {
+    this._show.next(true);
+  }
+
+  close() {
+    this._show.next(false);
+  }
+
+  addRestaurant(newLoc: MapLocation) {
+    this._locations.next(this._locations.getValue().add(newLoc));
+  }
+
+  addLocation(newLoc: MapLocation) {
     this._locations.next(this._locations.getValue().add(newLoc));
   }
 

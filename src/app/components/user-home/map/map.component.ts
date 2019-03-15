@@ -12,9 +12,9 @@ import { Restaurant } from 'src/app/models/restaurant.model';
 export class MapComponent implements OnInit {
 
   show: boolean = false;
+
   currentLocation: MapLocation;
-  restaurants: Set<Restaurant>;
-  locations: MapLocation[];
+  locations: Set<MapLocation>;
 
   @ViewChild(AgmMap)
   public agmMap: AgmMap;
@@ -29,7 +29,7 @@ export class MapComponent implements OnInit {
       this.show = resp
     });
     this.map._locations.subscribe(resp => {
-      this.restaurants = resp;
+      this.locations = resp;
     });
   }
 

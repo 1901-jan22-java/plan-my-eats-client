@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatPaginator, MatTableDataSource } from '@angular/material';
+import { Recipe } from 'src/app/models/recipe.model';
+import { RecipeService } from 'src/app/services/recipe/recipe.service';
 
 @Component({
   selector: 'app-eat-in',
@@ -7,9 +10,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EatInComponent implements OnInit {
 
-  constructor() { }
+  tableColumns: string[] = [
+  ];
+  dataSource: MatTableDataSource<Recipe> = new MatTableDataSource<Recipe>();
+
+  @ViewChild(MatPaginator)
+  paginator: MatPaginator;
+
+  constructor(private recipeService: RecipeService) { }
 
   ngOnInit() {
+    this.recipeService.getRecipes().subscribe(recipes => {
+      this.dataSource = new MatTableDataSource<Recipe>(recipes);
+    });
   }
-
 }
