@@ -22,18 +22,19 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { NavOptionsComponent } from './components/navbar/nav-options/nav-options.component';
 
 import { HomeComponent } from './components/home/home.component';
-import { UserHomeComponent } from './components/user-home/user-home.component';
 
-import { EatInComponent } from './components/user-home/eat-in/eat-in.component';
-import { EatOutComponent } from './components/user-home/eat-out/eat-out.component';
-import { MapComponent } from './components/user-home/map/map.component';
+import { GeneralHomeComponent } from './components/home/general-home/general-home.component';
+import { UserHomeComponent } from './components/home/user-home/user-home.component';
+import { EatInComponent } from './components/home/eat-in/eat-in.component';
+import { EatOutComponent } from './components/home/eat-out/eat-out.component';
+import { MapComponent } from './components/home/map/map.component';
 
 import { ModalComponent } from './components/modal/modal.component';
 import { LoginFormComponent } from './components/modal/login-form/login-form.component';
 import { RegisterFormComponent } from './components/modal/register-form/register-form.component';
 
 // I don't know what to do with these yet
-import { PreferencesComponent } from './components/user-home/preferences/preferences.component';
+import { PreferencesComponent } from './components/home/preferences/preferences.component';
 
 // SERVICES
 import { ModalService } from './services/modal/modal.service';
@@ -50,12 +51,13 @@ import { TestApiService } from './services/testapi/test-api.service';
   declarations: [
     AppComponent,
 
-    HomeComponent,
     NavbarComponent,
-
     NavOptionsComponent,
 
+    HomeComponent,
+    GeneralHomeComponent,
     UserHomeComponent,
+
     EatInComponent,
     EatOutComponent,
     MapComponent,

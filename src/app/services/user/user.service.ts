@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { HttpHeaders, HttpClient } from '@angular/common/http';
 import { User } from 'src/app/models/user.model';
 import { Observable, BehaviorSubject } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -27,32 +28,51 @@ export class UserService {
 
   public update(user: User) {
     console.log('Updating user: ' + user);
+    localStorage.setItem('currentUser', JSON.stringify(user));
     this._user.next(user);
   }
 
   public login(user: User) {
     console.log('Logging in user: ' + user);
-    this._loggedIn.next(true);
-    this._user.next(user);
-    this.router.navigate(['user-home']);
-  }
 
-  public logout() {
-    console.log("Logging out user: " + this._user.getValue());
-    this._loggedIn.next(false);
-    this._user.next(new User());
-    this.router.navigate(['home']);
-  }
-
-  public requestLogin(user: User) {
-    // console.log(user);
-    return this.http.post<User>(`${this.url}login`, user, httpOptions);
+    return this.http.post<any>(`${this.url}login`, user)
+      .pipe(map(user => {
+        // login successful if there's a jwt token in the response
+        if (user && user.token) {
+          // store user details and jwt token in local storage to keep user logged in between page refreshes
+          localStorage.setItem('currentUser', JSON.stringify(user));
+          console.log("User returned: " + user);
+          this._loggedIn.next(true);
+          this._user.next(user);
+        }
+        return user;
+      }));
   }
 
   public register(user: User) {
     // console.log(user);
-    return this.http.post<User>(`${this.url}register`, user, httpOptions);
+    return this.http.post<User>(`${this.url}register`, user, httpOptions)
+      .pipe(map(user => {
+        // login successful if there's a jwt token in the response
+        if (user && user.token) {
+          // store user details and jwt token in local storage to keep user logged in between page refreshes
+          localStorage.setItem('currentUser', JSON.stringify(user));
+          console.log("User returned: " + user);
+          this._loggedIn.next(true);
+          this._user.next(user);
+        }
+        return user;
+      }));
   }
 
+  public logout() {
+    console.log("Logging out user: " + this._user.getValue());
+
+    // remove user from local storage to log user out
+    localStorage.removeItem('currentUser');
+    this._user.next(new User());
+    this._loggedIn.next(false);
+    this.router.navigate(['home']);
+  }
 
 }
