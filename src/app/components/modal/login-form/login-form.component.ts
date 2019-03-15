@@ -2,10 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/models/user.model';
 import { UserService } from 'src/app/services/user/user.service';
 import { ModalService } from 'src/app/services/modal/modal.service';
-import { nullSafeIsEquivalent } from '@angular/compiler/src/output/output_ast';
 import { first } from 'rxjs/operators';
-import { AlertService } from '../../../services/authentication/alert.service';
 import { Router } from '@angular/router';
+import { AlertService } from 'src/app/services/alert/alert.service';
 
 @Component({
   selector: 'app-login-form',
