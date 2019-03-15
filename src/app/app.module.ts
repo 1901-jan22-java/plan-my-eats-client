@@ -46,6 +46,7 @@ import { MapService } from './services/map/map.service';
 // NOT PART OF THE APP
 import { TestApiComponent } from './components/test-api/test-api.component';
 import { TestApiService } from './services/testapi/test-api.service';
+import { UserNavOptionsComponent } from './components/navbar/user-nav-options/user-nav-options.component';
 
 @NgModule({
 
@@ -71,6 +72,8 @@ import { TestApiService } from './services/testapi/test-api.service';
 
     // NOT PART OF THE APP
     TestApiComponent,
+
+    UserNavOptionsComponent,
   ],
 
   imports: [
