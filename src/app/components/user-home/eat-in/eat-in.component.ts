@@ -11,6 +11,13 @@ import { RecipeService } from 'src/app/services/recipe/recipe.service';
 export class EatInComponent implements OnInit {
 
   tableColumns: string[] = [
+
+    'recipeId',
+    'ingredients',
+    'recipeName',
+    'calories',
+    'types',
+
   ];
   dataSource: MatTableDataSource<Recipe> = new MatTableDataSource<Recipe>();
 
