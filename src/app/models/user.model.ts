@@ -13,4 +13,5 @@ export class User {
     recipes: Set<Recipe>;
     restaurants: Set<Restaurant>;
     preferences: Set<Preference>;
+    token: string;
 }

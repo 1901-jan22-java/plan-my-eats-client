@@ -14,9 +14,10 @@ export class RegisterFormComponent implements OnInit {
 
   registering: User = new User();
 
-  constructor(private userService: UserService,
+  constructor(
+    private userService: UserService, 
     private modalService: ModalService) {
-  }
+    }
 
   ngOnInit() {
   }
