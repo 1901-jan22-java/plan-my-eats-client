@@ -28,14 +28,14 @@ export class UserService {
 
     this.user$ = this._user.asObservable();
     this.loggedIn$ = this._loggedIn.asObservable();
-    
-    if(this.user.token != '') {
+
+    if (this._user.getValue() != null && this._user.getValue().token != '') {
       this._loggedIn.next(true);
     }
   }
 
   public get user(): User {
-      return this._user.getValue();
+    return this._user.getValue();
   }
 
   public update(user: User) {
@@ -54,7 +54,7 @@ export class UserService {
     return this.authenticate(`${this.url}register`, user);
   }
 
-  private authenticate(paramURL: string, user: User){
+  private authenticate(paramURL: string, user: User) {
     return this.http.post<User>(paramURL, user, httpOptions)
       .pipe(map(user => {
         // login successful if there's a jwt token in the response
