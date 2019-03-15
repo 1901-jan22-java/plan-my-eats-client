@@ -65,9 +65,9 @@ import { TestApiService } from './services/testapi/test-api.service';
     PreferencesComponent,
 
     ModalComponent,
+    AlertComponent,
     LoginFormComponent,
     RegisterFormComponent,
-    AlertComponent,
 
     // NOT PART OF THE APP
     TestApiComponent,
