@@ -27,10 +27,12 @@ import { UserHomeComponent } from './components/home/user-home/user-home.compone
 
 import { EatOutComponent } from './components/eat-out/eat-out.component';
 import { EatInComponent } from './components/eat-in/eat-in.component';
+import { PreferencesComponent } from './components/preferences/preferences.component';
 
 import { MapComponent } from './components/map/map.component';
 
 import { ModalComponent } from './components/modal/modal.component';
+import { AlertComponent } from './components/modal/alert/alert.component';
 import { LoginFormComponent } from './components/modal/login-form/login-form.component';
 import { RegisterFormComponent } from './components/modal/register-form/register-form.component';
 
@@ -40,12 +42,10 @@ import { RegisterFormComponent } from './components/modal/register-form/register
 import { ModalService } from './services/modal/modal.service';
 import { UserService } from './services/user/user.service';
 import { MapService } from './services/map/map.service';
-import { AlertComponent } from './components/alert/alert.component'
 
 // NOT PART OF THE APP
 import { TestApiComponent } from './components/test-api/test-api.component';
 import { TestApiService } from './services/testapi/test-api.service';
-import { PreferencesComponent } from './components/preferences/preferences.component';
 
 @NgModule({
 

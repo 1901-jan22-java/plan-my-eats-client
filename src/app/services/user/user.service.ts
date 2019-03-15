@@ -29,7 +29,7 @@ export class UserService {
     this.user$ = this._user.asObservable();
     this.loggedIn$ = this._loggedIn.asObservable();
 
-    if (this._user.getValue() != null && this._user.getValue().token != '') {
+    if (this._user.getValue() && this._user.getValue().token != '') {
       this._loggedIn.next(true);
     }
   }
