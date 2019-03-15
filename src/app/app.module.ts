@@ -19,6 +19,7 @@ import { AgmCoreModule } from '@agm/core';
 import { AppComponent } from './app.component';
 
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { UserNavOptionsComponent } from './components/navbar/user-nav-options/user-nav-options.component';
 import { NavOptionsComponent } from './components/navbar/nav-options/nav-options.component';
 
 import { HomeComponent } from './components/home/home.component';
@@ -46,7 +47,6 @@ import { MapService } from './services/map/map.service';
 // NOT PART OF THE APP
 import { TestApiComponent } from './components/test-api/test-api.component';
 import { TestApiService } from './services/testapi/test-api.service';
-import { UserNavOptionsComponent } from './components/navbar/user-nav-options/user-nav-options.component';
 
 @NgModule({
 
@@ -54,6 +54,7 @@ import { UserNavOptionsComponent } from './components/navbar/user-nav-options/us
     AppComponent,
 
     NavbarComponent,
+    UserNavOptionsComponent,
     NavOptionsComponent,
 
     HomeComponent,
@@ -72,8 +73,6 @@ import { UserNavOptionsComponent } from './components/navbar/user-nav-options/us
 
     // NOT PART OF THE APP
     TestApiComponent,
-
-    UserNavOptionsComponent,
   ],
 
   imports: [
