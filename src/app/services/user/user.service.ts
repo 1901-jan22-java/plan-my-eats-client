@@ -28,10 +28,14 @@ export class UserService {
 
     this.user$ = this._user.asObservable();
     this.loggedIn$ = this._loggedIn.asObservable();
+    
+    if(this.user.token != '') {
+      this._loggedIn.next(true);
+    }
   }
 
   public get user(): User {
-      return this._user.value;
+      return this._user.getValue();
   }
 
   public update(user: User) {
