@@ -1,3 +1,9 @@
+# git ls-files --others --exclude-from=.git/info/exclude
+# Lines that start with '#' are comments.
+# For a project mostly in C, the following would be a good set of
+# exclude patterns (uncomment them if you want to use them):
+# *.[oa]
+# *~
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 
 **/tmp
@@ -102,11 +108,10 @@ testem.log
 **/bin/
 **/META-INF/**
 
+# Mac
 # System Files
-Thumbs.db
-
-#Mac
 .DS_Store
+Thumbs.db
 /.recommenders/
 
 # Compiled class file
