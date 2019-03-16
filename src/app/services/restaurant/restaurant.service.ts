@@ -16,8 +16,12 @@ export class RestaurantService {
 
   constructor(private http: HttpClient) { }
 
-  public getRestaurants() {
+  public getAllRestaurants() {
     return this.http.get<Restaurant[]>(`${this.url}`, httpOptions);
   }
   
+  public search(keywords: string) {
+    return this.http.post<Restaurant[]>(`${this.url}`, keywords, httpOptions);
+  }
+
 }
