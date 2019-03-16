@@ -1,4 +1,6 @@
-export interface Restaurant {
+import { MapLocation } from './map-location.model';
+
+export class Restaurant extends MapLocation {
 	restaurantId: number;
 	name: string;
 	location: string;
