@@ -1,16 +1,13 @@
-<div class="jumbotron jumbotron-fluid eat-in-container">
+<div class="jumbotron jumbotron-fluid bg-dark text-white eat-in-container">
   <div class="container eat-in-container-item">
+
     <h1 class="display-3">Eating In!</h1>
     <p class="lead">Choose a recipe! :D</p>
+
     <hr class="my-2">
+
     <div class="mat-elevation-z8">
       <table mat-table [dataSource]="dataSource">
-
-        <!-- 'recipeId',
-              'ingredients',
-              'recipeName',
-              'calories',
-              'types', -->
 
         <ng-container matColumnDef="recipeId">
           <th mat-header-cell *matHeaderCellDef> ID </th>
@@ -47,7 +44,8 @@
     <hr class="my-2">
 
     <p class="lead">
-      <button class="btn btn-primary btn-lg">Surprise Me!</button>
+      <button class="btn btn-danger btn-lg">Surprise Me!</button>
+      <a class="btn btn-light" href="">Back</a>
     </p>
   </div>
 </div>
