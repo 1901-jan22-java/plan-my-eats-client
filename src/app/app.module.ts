@@ -45,11 +45,11 @@ import { UserService } from './services/user/user.service';
 import { MapService } from './services/map/map.service';
 
 // SECRETS
-import { keys } from '../environments/keys/api';
 
 // NOT PART OF THE APP
 import { TestApiComponent } from './components/test-api/test-api.component';
 import { TestApiService } from './services/testapi/test-api.service';
+import { keys } from 'src/environments/api';
 
 @NgModule({
 
