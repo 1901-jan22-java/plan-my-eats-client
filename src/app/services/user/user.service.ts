@@ -19,15 +19,19 @@ export class UserService {
   private _loggedIn: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
   loggedIn$: Observable<boolean>;
 
-  private url: string = 'http://localhost:8085/plan-my-eats/';
+  private url: string = 'http://ec2-52-90-151-107.compute-1.amazonaws.com:8080/PlanMyEats/';
 
   constructor(private http: HttpClient, private router: Router) {
     this.user$ = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('currentUser'))).asObservable();
     this.loggedIn$ = this._loggedIn.asObservable();
-    console.log("WE ARE HERE!");
-    if(this._user.value.token != '') {
+    if(localStorage.currentUser && this._user.getValue().token != '') {
+      console.log("We are inside the condition.");
       this._loggedIn.next(true);
     }
+  }
+
+  public user() {
+    return this._user.value;
   }
 
   public update(user: User) {
@@ -37,7 +41,7 @@ export class UserService {
 
   public login(user: User) {
     console.log('Logging in user: ' + user);
-    return this.http.post<any>('http://localhost:8085/plan-my-eats/login', user)
+    return this.http.post<any>('http://ec2-52-90-151-107.compute-1.amazonaws.com:8080/PlanMyEats/login', user)
             .pipe(map(user => {
                 // login successful if there's a jwt token in the response
                 if (user && user.token) {

@@ -20,7 +20,7 @@ export class AuthenticationService {
     }
 
     login(user: User) {
-        return this.http.post<any>('http://localhost:8085/plan-my-eats/login', user)
+        return this.http.post<any>('http://ec2-52-90-151-107.compute-1.amazonaws.com:8080/PlanMyEats/login', user)
             .pipe(map(user => {
                 // login successful if there's a jwt token in the response
                 if (user && user.token) {
