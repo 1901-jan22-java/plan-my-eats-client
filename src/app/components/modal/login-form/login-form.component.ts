@@ -2,11 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/models/user.model';
 import { UserService } from 'src/app/services/user/user.service';
 import { ModalService } from 'src/app/services/modal/modal.service';
-import { nullSafeIsEquivalent } from '@angular/compiler/src/output/output_ast';
 import { first } from 'rxjs/operators';
-import { AlertService } from '../../../services/authentication/alert.service';
-import { AuthenticationService } from '../../../services/authentication/authentication.service';
 import { Router } from '@angular/router';
+import { AlertService } from 'src/app/services/alert/alert.service';
 
 @Component({
   selector: 'app-login-form',
@@ -22,14 +20,13 @@ export class LoginFormComponent implements OnInit {
   constructor(
     private alertService: AlertService,
     private router: Router,
-    private userService: UserService, 
-    private modalService: ModalService,
-    private authenticationServiceService: AuthenticationService) {
-    
+    private userService: UserService,
+    private modalService: ModalService, ) {
+
     // redirect to home if already logged in
-    if (this.authenticationServiceService.currentUserValue) { 
+    if (this.userService.user) {
       this.router.navigate(['/']);
-  }
+    }
   }
 
   ngOnInit() {
@@ -37,15 +34,17 @@ export class LoginFormComponent implements OnInit {
 
   loginUser() {
     this.userService.login(this.logging)
-    .pipe(first())
-    .subscribe(
-      data => {
-        this.closeModal();
-      },
-      error => {
-        this.alertService.error(error);
-        this.loading = false;
-    });
+      .pipe(first())
+      .subscribe(
+        data => {
+          this.router.navigate(['home']);
+          this.closeModal();
+        },
+        error => {
+          this.alertService.error(error);
+          this.loading = false;
+        }
+      );
   }
 
   closeModal() {

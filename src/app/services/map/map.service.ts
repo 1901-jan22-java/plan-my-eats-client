@@ -3,6 +3,8 @@ import { HttpClient } from '@angular/common/http';
 import { MapLocation } from 'src/app/models/map-location.model';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Restaurant } from 'src/app/models/restaurant.model';
+import { RestaurantService } from '../restaurant/restaurant.service';
+import { UserService } from '../user/user.service';
 
 @Injectable({
   providedIn: 'root'
@@ -15,8 +17,13 @@ export class MapService {
   public _locations: BehaviorSubject<Set<MapLocation>> = new BehaviorSubject<Set<MapLocation>>(new Set<MapLocation>());
   public locations$: Observable<Set<MapLocation>> = this._locations.asObservable();
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private userService: UserService) {
     this.show$ = this._show.asObservable();
+    this.userService.user$.subscribe(resp =>{
+      resp.restaurants.forEach(res => {
+        this.addLocation(res);
+      });
+    });
   }
 
   getLocation() {
@@ -35,7 +42,7 @@ export class MapService {
     this._show.next(false);
   }
 
-  addRestaurant(newLoc: MapLocation) {
+  addRestaurant(newLoc: Restaurant) {
     this._locations.next(this._locations.getValue().add(newLoc));
   }
 

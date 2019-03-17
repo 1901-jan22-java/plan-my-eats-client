@@ -28,7 +28,7 @@ export class EatOutComponent implements OnInit {
   constructor(private restaurantService: RestaurantService, private map: MapService) { }
 
   ngOnInit() {
-    this.restaurantService.getRestaurants().subscribe(restaurants => {
+    this.restaurantService.getAllRestaurants().subscribe(restaurants => {
       this.dataSource = new MatTableDataSource<Restaurant>(restaurants);
     });
   }

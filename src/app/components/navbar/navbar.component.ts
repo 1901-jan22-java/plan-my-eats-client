@@ -1,5 +1,5 @@
 import { Component, OnInit, QueryList, ContentChildren, AfterViewInit } from '@angular/core';
-import { MapComponent } from '../user-home/map/map.component';
+import { MapComponent } from '../map/map.component';
 
 @Component({
   selector: 'app-navbar',

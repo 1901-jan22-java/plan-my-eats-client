@@ -19,52 +19,60 @@ import { AgmCoreModule } from '@agm/core';
 import { AppComponent } from './app.component';
 
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { UserNavOptionsComponent } from './components/navbar/user-nav-options/user-nav-options.component';
 import { NavOptionsComponent } from './components/navbar/nav-options/nav-options.component';
 
 import { HomeComponent } from './components/home/home.component';
-import { UserHomeComponent } from './components/user-home/user-home.component';
+import { GeneralHomeComponent } from './components/home/general-home/general-home.component';
+import { UserHomeComponent } from './components/home/user-home/user-home.component';
 
-import { EatInComponent } from './components/user-home/eat-in/eat-in.component';
-import { EatOutComponent } from './components/user-home/eat-out/eat-out.component';
-import { MapComponent } from './components/user-home/map/map.component';
+import { EatOutComponent } from './components/eat-out/eat-out.component';
+import { EatInComponent } from './components/eat-in/eat-in.component';
+import { PreferencesComponent } from './components/preferences/preferences.component';
+
+import { MapComponent } from './components/map/map.component';
 
 import { ModalComponent } from './components/modal/modal.component';
+import { AlertComponent } from './components/modal/alert/alert.component';
 import { LoginFormComponent } from './components/modal/login-form/login-form.component';
 import { RegisterFormComponent } from './components/modal/register-form/register-form.component';
 
 // I don't know what to do with these yet
-import { PreferencesComponent } from './components/user-home/preferences/preferences.component';
 
 // SERVICES
 import { ModalService } from './services/modal/modal.service';
 import { UserService } from './services/user/user.service';
 import { MapService } from './services/map/map.service';
-import { AlertComponent } from './components/alert/alert.component'
+
+// SECRETS
 
 // NOT PART OF THE APP
 import { TestApiComponent } from './components/test-api/test-api.component';
 import { TestApiService } from './services/testapi/test-api.service';
+import { keys } from 'src/environments/api';
 
 @NgModule({
 
   declarations: [
     AppComponent,
 
-    HomeComponent,
     NavbarComponent,
-
+    UserNavOptionsComponent,
     NavOptionsComponent,
 
+    HomeComponent,
+    GeneralHomeComponent,
     UserHomeComponent,
+
     EatInComponent,
     EatOutComponent,
     MapComponent,
     PreferencesComponent,
 
     ModalComponent,
+    AlertComponent,
     LoginFormComponent,
     RegisterFormComponent,
-    AlertComponent,
 
     // NOT PART OF THE APP
     TestApiComponent,
@@ -85,7 +93,7 @@ import { TestApiService } from './services/testapi/test-api.service';
     NoopAnimationsModule,
 
     AgmCoreModule.forRoot({
-      apiKey: ""
+      apiKey: keys.google.mapsjs
     }),
 
   ],

@@ -1,3 +1,4 @@
-app-map{
-    height: 500px;
+.jumbotron {
+    background: rgba(inherit, inherit, inherit, 0.1);
+    /* background-image: url('/src/assets/pme-logo.png'); */
 }
