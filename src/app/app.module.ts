@@ -44,6 +44,9 @@ import { ModalService } from './services/modal/modal.service';
 import { UserService } from './services/user/user.service';
 import { MapService } from './services/map/map.service';
 
+// SECRETS
+import { keys } from '../environments/keys/api';
+
 // NOT PART OF THE APP
 import { TestApiComponent } from './components/test-api/test-api.component';
 import { TestApiService } from './services/testapi/test-api.service';
@@ -90,7 +93,7 @@ import { TestApiService } from './services/testapi/test-api.service';
     NoopAnimationsModule,
 
     AgmCoreModule.forRoot({
-      apiKey: ""
+      apiKey: keys.google.mapsjs
     }),
 
   ],
