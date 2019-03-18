@@ -42,6 +42,7 @@ export class UserService {
     console.log('Updating User: ' + user);
     localStorage.setItem('currentUser', JSON.stringify(user));
     this._user.next(user);
+    this.router.navigate(['home']);
   }
 
   public login(user: User) {
