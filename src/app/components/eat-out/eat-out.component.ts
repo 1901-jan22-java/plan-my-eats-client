@@ -43,6 +43,7 @@ export class EatOutComponent implements OnInit {
    //This is using an arrow function because otherwise lexical context is lost. 
    getLocation() {
     navigator.geolocation.getCurrentPosition((position) => {
+      console.log(position.coords.latitude + "," + position.coords.longitude);
       this.location = position.coords.latitude + "," + position.coords.longitude
     });
   }
@@ -52,6 +53,7 @@ export class EatOutComponent implements OnInit {
   }
 
   surprise() {
+    this.getLocation();
     let index = Math.floor(Math.random()*this.user.preferences.length);
     let pref = "";
     if(this.user.preferences.length == 0) {
