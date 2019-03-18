@@ -12,7 +12,7 @@ const httpOptions = {
 })
 export class RestaurantService {
 
-  url: string = 'http://localhost:8085/plan-my-eats/restaurant';
+  url: string = 'http://ec2-52-90-151-107.compute-1.amazonaws.com:8080/PlanMyEats/restaurant';
 
   constructor(private http: HttpClient) { }
 

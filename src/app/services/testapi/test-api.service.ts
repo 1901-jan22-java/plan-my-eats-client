@@ -11,7 +11,7 @@ const httpOptions = {
 
 export class TestApiService {
 
-  serverUrl: string = 'http://localhost:8085/plan-my-eats/testing';
+  serverUrl: string = 'http://ec2-52-90-151-107.compute-1.amazonaws.com:8080/PlanMyEats/testing';
   url: string = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?';
 
   radius: string = '&radius=1500';
