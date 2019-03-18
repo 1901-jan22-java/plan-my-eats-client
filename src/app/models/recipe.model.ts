@@ -5,5 +5,5 @@ export interface Recipe {
     recipeName: string;
     calories: number;
     types: string;
-
+    url: string;
 }

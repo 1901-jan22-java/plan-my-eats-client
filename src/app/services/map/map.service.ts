@@ -3,7 +3,6 @@ import { HttpClient } from '@angular/common/http';
 import { MapLocation } from 'src/app/models/map-location.model';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Restaurant } from 'src/app/models/restaurant.model';
-import { RestaurantService } from '../restaurant/restaurant.service';
 import { UserService } from '../user/user.service';
 
 @Injectable({
@@ -14,19 +13,24 @@ export class MapService {
   public _show: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
   public show$: Observable<boolean> = this._show.asObservable();
 
-  public _locations: BehaviorSubject<Set<MapLocation>> = new BehaviorSubject<Set<MapLocation>>(new Set<MapLocation>());
-  public locations$: Observable<Set<MapLocation>> = this._locations.asObservable();
+  public _locations: BehaviorSubject<MapLocation[]> = new BehaviorSubject<MapLocation[]>([]);
+  public locations$: Observable<MapLocation[]> = this._locations.asObservable();
+
+  public _location: BehaviorSubject<MapLocation> = new BehaviorSubject<MapLocation>(new MapLocation());
+  public location$: Observable<MapLocation> = this._location.asObservable();
 
   constructor(private http: HttpClient, private userService: UserService) {
     this.show$ = this._show.asObservable();
+    this.locations$ = this._locations.asObservable();
+    this.location$ = this._location.asObservable();
     this.userService.user$.subscribe(resp =>{
-      resp.restaurants.forEach(res => {
-        this.addLocation(res);
-      });
+      for(let r of resp.restaurants){
+        this._locations.getValue().push(r);
+      }
     });
   }
 
-  getLocation() {
+  getCurrentLocation() {
     return this.http.get<MapLocation>('https://ipapi.co/json');
   }
 
@@ -42,12 +46,21 @@ export class MapService {
     this._show.next(false);
   }
 
+  setLocation(lat: string, lon: string) {
+    let loc = new MapLocation();
+    loc.latitude = lat;
+    loc.longitude = lon;
+    this._location.next(loc);
+  }
+
   addRestaurant(newLoc: Restaurant) {
-    this._locations.next(this._locations.getValue().add(newLoc));
+    this._locations.getValue().push(newLoc);
+    this._locations.next(this._locations.getValue());
   }
 
   addLocation(newLoc: MapLocation) {
-    this._locations.next(this._locations.getValue().add(newLoc));
+    this._locations.getValue().push(newLoc);
+    this._locations.next(this._locations.getValue());
   }
 
 }

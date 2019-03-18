@@ -2,7 +2,6 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MapService } from 'src/app/services/map/map.service';
 import { MapLocation } from 'src/app/models/map-location.model';
 import { AgmMap } from '@agm/core';
-import { Restaurant } from 'src/app/models/restaurant.model';
 
 @Component({
   selector: 'app-map',
@@ -22,14 +21,14 @@ export class MapComponent implements OnInit {
   constructor(private map: MapService) { }
 
   ngOnInit() {
-    this.map.getLocation().subscribe(data => {
-      this.currentLocation = data;
-    });
+    // this.map.getLocation().subscribe(data => {
+    //   this.currentLocation = data;
+    // });
     this.map.show$.subscribe(resp => {
       this.show = resp
     });
-    this.map.locations$.subscribe(resp => {
-      this.locations = resp;
+    this.map.location$.subscribe(resp => {
+      this.currentLocation = resp;
     });
   }
 

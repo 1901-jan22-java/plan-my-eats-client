@@ -4,6 +4,9 @@ import { MatPaginator, MatTableDataSource } from '@angular/material';
 import { Restaurant } from 'src/app/models/restaurant.model';
 import { MapService } from 'src/app/services/map/map.service';
 import { Router } from '@angular/router';
+import { User } from 'src/app/models/user.model';
+import { UserService } from 'src/app/services/user/user.service';
+import { getLocaleTimeFormat } from '@angular/common';
 
 @Component({
   selector: 'app-eat-out',
@@ -12,25 +15,39 @@ import { Router } from '@angular/router';
 })
 export class EatOutComponent implements OnInit {
 
-  // user: User = new User();
-  // restaurants: Set<Restaurant>;
+  user: User;
+  location: string;
+  keyword: string;
+  
   tableColumns: string[] = [
-    'restaurantId',
     'name',
     'location',
     'type',
-    'imgRef'
+
   ];
   dataSource: MatTableDataSource<Restaurant> = new MatTableDataSource<Restaurant>();
 
   @ViewChild(MatPaginator)
   paginator: MatPaginator;
 
-  constructor(private restaurantService: RestaurantService, private map: MapService, private router: Router) { }
+  constructor(private restaurantService: RestaurantService, 
+    private map: MapService, 
+    private router: Router, 
+    private userService: UserService) { }
 
   ngOnInit() {
-    this.restaurantService.getAllRestaurants().subscribe(restaurants => {
-      this.dataSource = new MatTableDataSource<Restaurant>(restaurants);
+    // this.restaurantService.getAllRestaurants().subscribe(restaurants => {
+    //   this.dataSource = new MatTableDataSource<Restaurant>(restaurants);
+    // });
+    this.getLocation();
+    this.user = this.userService.user;
+    console.log(this.user);
+  }
+
+   //This is using an arrow function because otherwise lexical context is lost. 
+   getLocation() {
+    navigator.geolocation.getCurrentPosition((position) => {
+      this.location = position.coords.latitude + "," + position.coords.longitude
     });
   }
 
@@ -41,4 +58,13 @@ export class EatOutComponent implements OnInit {
     this.router.navigate(['home']);
   }
 
+  surprise() {
+    let index = Math.floor(Math.random()*this.user.preferences.length);
+    console.log(index);
+    console.log(this.location);
+    this.restaurantService.search(this.location, this.user.preferences[index].name).subscribe(restaurants => {
+      console.log(restaurants);
+      this.dataSource = new MatTableDataSource<Restaurant>(restaurants);
+    });
+  }
 }

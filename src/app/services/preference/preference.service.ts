@@ -4,7 +4,7 @@ import { User } from 'src/app/models/user.model';
 import { APIurl } from 'src/environments/api';
 
 const httpOptions = {
-  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+  headers: new HttpHeaders({ 'Content-Type': 'application/json'})
 };
 
 @Injectable({
@@ -14,7 +14,7 @@ export class PreferenceService {
 
   url: string = `${APIurl}preference/`;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) { httpOptions.headers.append('Authorization', `Bearer ${localStorage.currentUser.token}`);}
 
   public updatePreferences(user: User) {
     return this.http.put<User>(`${this.url}`, user, httpOptions);
