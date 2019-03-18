@@ -27,6 +27,7 @@ speed-measure-plugin.json
 **/Servers
 **/.springBeans
 **/.properties
+**/api.properties
 **/db.properties
 
 # IDEs and editors
