@@ -22,7 +22,7 @@ export class EatOutComponent implements OnInit {
     'name',
     'location',
     'type',
-    'imgRef'
+
   ];
   dataSource: MatTableDataSource<Restaurant> = new MatTableDataSource<Restaurant>();
 

@@ -17,6 +17,9 @@ export class MapService {
   public _locations: BehaviorSubject<Set<MapLocation>> = new BehaviorSubject<Set<MapLocation>>(new Set<MapLocation>());
   public locations$: Observable<Set<MapLocation>> = this._locations.asObservable();
 
+  public _restaurant: BehaviorSubject<MapLocation> = new BehaviorSubject<MapLocation>(new MapLocation());
+  public restaurant$: Observable<MapLocation> = this._restaurant.asObservable();
+
   constructor(private http: HttpClient, private userService: UserService) {
     this.show$ = this._show.asObservable();
     this.userService.user$.subscribe(resp =>{
@@ -40,6 +43,13 @@ export class MapService {
 
   close() {
     this._show.next(false);
+  }
+
+  setLocation(lat: string, lon: string) {
+    let loc = new MapLocation();
+    loc.latitude = lat;
+    loc.longitude = lon;
+    this._restaurant.next(loc);
   }
 
   addRestaurant(newLoc: Restaurant) {

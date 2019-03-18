@@ -15,10 +15,9 @@ export class EatInComponent implements OnInit {
   user: User;
 
   tableColumns: string[] = [
-    'ingredients',
     'recipeName',
+    'ingredients',
     'calories',
-    'types',
   ];
   dataSource: MatTableDataSource<Recipe> = new MatTableDataSource<Recipe>();
 
@@ -28,13 +27,17 @@ export class EatInComponent implements OnInit {
   constructor(private recipeService: RecipeService, private userService: UserService) { }
 
   ngOnInit() {
-    this.recipeService.getRecipes().subscribe(recipes => {
-      this.dataSource = new MatTableDataSource<Recipe>(recipes);
-    });
+    // this.recipeService.getRecipes().subscribe(recipes => {
+    //   this.dataSource = new MatTableDataSource<Recipe>(recipes);
+    // });
     this.user = this.userService.user;
   }
 
   surprise() {
     
+    this.recipeService.search(this.user).subscribe(recipes => {
+      console.log(recipes);
+      this.dataSource = new MatTableDataSource<Recipe>(recipes);
+    });
   }
 }

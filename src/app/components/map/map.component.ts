@@ -22,14 +22,14 @@ export class MapComponent implements OnInit {
   constructor(private map: MapService) { }
 
   ngOnInit() {
-    this.map.getLocation().subscribe(data => {
-      this.currentLocation = data;
-    });
+    // this.map.getLocation().subscribe(data => {
+    //   this.currentLocation = data;
+    // });
     this.map.show$.subscribe(resp => {
       this.show = resp
     });
-    this.map._locations.subscribe(resp => {
-      this.locations = resp;
+    this.map.restaurant$.subscribe(resp => {
+      this.currentLocation = resp;
     });
   }
 
