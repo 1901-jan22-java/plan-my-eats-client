@@ -31,6 +31,7 @@ export class UserService {
     this.loggedIn$ = this._loggedIn.asObservable();
 
     if (this._user.getValue() && this._user.getValue().token != '') {
+      httpOptions.headers.append('Authorization', `Bearer ${localStorage.currentUser.token}`);
       this._loggedIn.next(true);
     }
   }

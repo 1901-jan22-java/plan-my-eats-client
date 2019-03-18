@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Restaurant } from 'src/app/models/restaurant.model';
 import { APIurl } from 'src/environments/api';
-import { User } from 'src/app/models/user.model';
 
 
 const httpOptions = {

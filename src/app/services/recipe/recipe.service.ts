@@ -17,19 +17,16 @@ export class RecipeService {
   private url: string = `${APIurl}recipe/`;
 
   constructor(private http: HttpClient, private us: UserService) {
-    httpOptions.headers.append('Authorization', 'Bearer ');
-    var user: User = JSON.parse(localStorage.getItem('currentUser'));
-    if (user) {
-      httpOptions.headers.set('Authorization', `Bearer ${user.token}`);
-    }
-
-    this.us.user$.subscribe(resp => {
-      httpOptions.headers.set('Authorization', `Bearer ${resp.token}`);
-    });
+    httpOptions.headers.append('Authorization', `Bearer ${localStorage.currentUser.token}`);
   }
 
   public getRecipes() {
     return this.http.get<Recipe[]>(`${this.url}`, httpOptions);
+  }
+
+  public search(user: User) {
+    console.log('made it');
+    return this.http.post<Recipe[]>(`${this.url}`, user, httpOptions);
   }
 
   public searchByKeywords(search: string) {
@@ -40,10 +37,6 @@ export class RecipeService {
       }
     }
     return this.http.get<Recipe[]>(`${this.url}/search${healthSearch}`);
-  }
-
-  public search(user: User) {
-    return this.http.post<Recipe[]>(`${this.url}`, user, httpOptions);
   }
 
 }

@@ -43,7 +43,8 @@ export class EatInComponent implements OnInit {
   }
 
   searchForRecipe() {
-    this.recipeService.searchBasic(this.search).subscribe(resp => {
+    this.recipeService.searchByKeywords(this.search).subscribe(resp => {
+      console.log(resp);
       this.dataSource = new MatTableDataSource<Recipe>(resp);
     });
   }
