@@ -13,6 +13,7 @@ import { Preference } from 'src/app/models/preference.model';
 export class PreferencesComponent implements OnInit {
 
   user: User = new User();
+
   preferences = [
     { prefId: 1, type: 'health', name: 'alcohol-free', selected: false },
     { prefId: 2, type: 'health', name: 'celery-free', selected: false },

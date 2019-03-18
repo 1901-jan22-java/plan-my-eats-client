@@ -60,9 +60,15 @@ export class EatOutComponent implements OnInit {
 
   surprise() {
     let index = Math.floor(Math.random()*this.user.preferences.length);
+    let pref = "";
+    if(this.user.preferences.length == 0) {
+      pref = " ";
+    } else {
+      pref = this.user.preferences[index].name;
+    }
     console.log(index);
     console.log(this.location);
-    this.restaurantService.search(this.location, this.user.preferences[index].name).subscribe(restaurants => {
+    this.restaurantService.search(this.location, pref).subscribe(restaurants => {
       console.log(restaurants);
       this.dataSource = new MatTableDataSource<Restaurant>(restaurants);
     });

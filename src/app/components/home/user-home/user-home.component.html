@@ -12,7 +12,10 @@
   <!-- 
   Recipes: {{ user.recipes }} <br>
   Restaurants: {{ user.restaurants }} <br> -->
-  Preferences: {{ user.preferences }} <br>
+  Preferences: <br>
+  <ul *ngFor='let p of user.preferences'>
+    <li>{{ p.name }}</li>
+  </ul>
   <br>
 </p>
 <hr class="my-2">

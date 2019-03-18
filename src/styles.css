@@ -2,6 +2,10 @@
 @import "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css";
 @import "https://use.fontawesome.com/releases/v5.7.2/css/all.css";
 
+*{
+  font-family: Georgia, 'Times New Roman', Times, serif !important;
+}
+
 /* You can add global styles to this file, and also import other style files */
 body {
   /* background-color: #191c20; */
