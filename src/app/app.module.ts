@@ -6,7 +6,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { MatTableModule, MatPaginatorModule } from '@angular/material';
 
@@ -50,6 +50,7 @@ import { MapService } from './services/map/map.service';
 import { TestApiComponent } from './components/test-api/test-api.component';
 import { TestApiService } from './services/testapi/test-api.service';
 import { keys } from 'src/environments/api';
+import { JwtInterceptor } from './_interceptors/jwt.interceptor';
 
 @NgModule({
 
@@ -102,6 +103,7 @@ import { keys } from 'src/environments/api';
     ModalService,
     UserService,
     MapService,
+    {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},
 
     // NOT PART OF THE APP!
     TestApiService

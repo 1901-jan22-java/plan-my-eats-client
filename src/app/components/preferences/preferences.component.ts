@@ -56,7 +56,7 @@ export class PreferencesComponent implements OnInit {
     this.userService.user$.subscribe(resp => this.user = resp);
 
     if (this.user != undefined) {
-      for (let i = 0; i < this.user.preferences.size; i++) {
+      for (let i = 0; i < this.user.preferences.length; i++) {
         for (let k = 0; k < this.preference.length; k++) {
           if (this.preference[k].prefId === this.user.preferences[i].prefId) {
             this.preference[k].selected = true;
@@ -78,14 +78,14 @@ export class PreferencesComponent implements OnInit {
 
     for (let i = 0; i < this.preference.length; i++) {
       if (this.preference[i].selected) {
-        this.user.preferences.add({ prefId: this.preference[i].prefId, name: this.preference[i].name });
+        this.user.preferences.push({ prefId: this.preference[i].prefId, name: this.preference[i].name });
         console.log(this.preference[i].name + " selected");
       }
     }
 
     for (let i = 0; i < this.restrauntPref.length; i++) {
       if (this.restrauntPref[i].selected) {
-        this.user.preferences.add({ prefId: this.restrauntPref[i].prefId, name: this.restrauntPref[i].name });
+        this.user.preferences.push({ prefId: this.restrauntPref[i].prefId, name: this.restrauntPref[i].name });
         console.log(this.restrauntPref[i].name + " selected");
       }
     }

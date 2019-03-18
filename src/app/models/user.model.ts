@@ -10,8 +10,8 @@ export class User {
     weight: number;
     age: number;
     gender: string;
-    recipes: Set<Recipe>;
-    restaurants: Set<Restaurant>;
-    preferences: Set<Preference>;
+    recipes: Recipe[];
+    restaurants: Restaurant[];
+    preferences: Preference[];
     token: string;
 }

@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Restaurant } from 'src/app/models/restaurant.model';
+import { User } from 'src/app/models/user.model';
 
 
 const httpOptions = {
-  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+  headers: new HttpHeaders({ 'Content-Type': 'text/plain' })
 };
 
 @Injectable({
@@ -12,16 +13,14 @@ const httpOptions = {
 })
 export class RestaurantService {
 
-  url: string = 'http://ec2-52-90-151-107.compute-1.amazonaws.com:8080/PlanMyEats/restaurant';
+  url: string = 'http://localhost:8085/plan-my-eats/restaurant';
 
-  constructor(private http: HttpClient) { }
-
-  public getAllRestaurants() {
-    return this.http.get<Restaurant[]>(`${this.url}`, httpOptions);
-  }
+  constructor(private http: HttpClient) {
+    httpOptions.headers.append('Authorization', `Bearer ${localStorage.currentUser.token}`);
+   }
   
-  public search(keywords: string) {
-    return this.http.post<Restaurant[]>(`${this.url}`, keywords, httpOptions);
+  public search(location: string, keywords: string) {
+    return this.http.post<Restaurant[]>(`${this.url}`, `${location};${keywords}`, httpOptions);
   }
 
 }
