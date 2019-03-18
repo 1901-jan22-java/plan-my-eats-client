@@ -1,6 +1,6 @@
 <h1 class="display-3">Welcome, {{ user.username }}!</h1>
 
-<p class="lead">
+<div class="lead">
   <br>
   Username: {{ user.username }} <br>
   <br>
@@ -12,13 +12,24 @@
   <!-- 
   Recipes: {{ user.recipes }} <br>
   Restaurants: {{ user.restaurants }} <br> -->
-  Preferences: <br>
-  <ul *ngFor='let p of user.preferences'>
-    <li>{{ p.name }}</li>
-  </ul>
-  <br>
-</p>
+  <div class="table-wrapper mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource">
+
+      <ng-container matColumnDef="prefs">
+        <th mat-header-cell *matHeaderCellDef> Preferences </th>
+        <td mat-cell *matCellDef="let p"> {{ p.name }} </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="tableColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: tableColumns"></tr>
+    </table>
+
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+  </div>
+</div>
+
 <hr class="my-2">
+
 <p class="lead">
   <button class="btn btn-primary" (click)="eatIn()">Eat In</button>
   <button class="btn btn-primary" (click)="eatOut()">Eat Out</button>
