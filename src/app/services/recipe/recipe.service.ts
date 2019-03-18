@@ -3,6 +3,7 @@ import { HttpHeaders, HttpClient } from '@angular/common/http';
 import { Recipe } from 'src/app/models/recipe.model';
 import { APIurl } from 'src/environments/api';
 import { User } from 'src/app/models/user.model';
+import { UserService } from '../user/user.service';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -15,13 +16,23 @@ export class RecipeService {
 
   private url: string = `${APIurl}recipe/`;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private us: UserService) {
+    httpOptions.headers.append('Authorization', 'Bearer ');
+    var user: User = JSON.parse(localStorage.getItem('currentUser'));
+    if (user) {
+      httpOptions.headers.set('Authorization', `Bearer ${user.token}`);
+    }
+
+    this.us.user$.subscribe(resp => {
+      httpOptions.headers.set('Authorization', `Bearer ${resp.token}`);
+    });
+  }
 
   public getRecipes() {
     return this.http.get<Recipe[]>(`${this.url}`, httpOptions);
   }
 
-  public searchBasic(search: string) {
+  public searchByKeywords(search: string) {
     var healthSearch: string = '?';
     for (let s of search.split(' ')) {
       if (s && s.length > 0) {
@@ -30,7 +41,7 @@ export class RecipeService {
     }
     return this.http.get<Recipe[]>(`${this.url}/search${healthSearch}`);
   }
-  
+
   public search(user: User) {
     return this.http.post<Recipe[]>(`${this.url}`, user, httpOptions);
   }
