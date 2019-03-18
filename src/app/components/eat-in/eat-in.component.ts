@@ -18,6 +18,7 @@ export class EatInComponent implements OnInit {
     'recipeName',
     'ingredients',
     'calories',
+    'url',
   ];
   dataSource: MatTableDataSource<Recipe> = new MatTableDataSource<Recipe>();
 

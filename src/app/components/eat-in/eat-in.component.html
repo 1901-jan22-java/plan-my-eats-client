@@ -24,9 +24,9 @@
           <td mat-cell *matCellDef="let r"> {{ r.calories }} </td>
         </ng-container>
 
-        <ng-container matColumnDef="types">
-          <th mat-header-cell *matHeaderCellDef> Servings </th>
-          <td mat-cell *matCellDef="let r"> {{ r.servings }} </td>
+        <ng-container matColumnDef="url">
+          <th mat-header-cell *matHeaderCellDef> Link </th>
+          <td mat-cell *matCellDef="let r"> <a [href]="r.url"> View Recipe</a> </td>
         </ng-container>
 
         <tr mat-header-row *matHeaderRowDef="tableColumns"></tr>
