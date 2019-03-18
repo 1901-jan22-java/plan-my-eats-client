@@ -19,4 +19,14 @@ export class RecipeService {
     return this.http.get<Recipe[]>(`${this.url}`, httpOptions);
   }
 
+  public search(search: string){
+    var healthSearch: string = '?';
+    for(let s of search.split(' ')){
+      if(s && s.length > 0){
+        healthSearch += '&health=' + s;
+      }
+    }
+    return this.http.get<Recipe[]>(`${this.url}/search${healthSearch}`);
+  }
+
 }

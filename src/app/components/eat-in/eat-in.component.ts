@@ -10,6 +10,7 @@ import { RecipeService } from 'src/app/services/recipe/recipe.service';
 })
 export class EatInComponent implements OnInit {
 
+  search: string;
   tableColumns: string[] = [
     'recipeId',
     'ingredients',
@@ -25,8 +26,15 @@ export class EatInComponent implements OnInit {
   constructor(private recipeService: RecipeService) { }
 
   ngOnInit() {
-    this.recipeService.getRecipes().subscribe(recipes => {
-      this.dataSource = new MatTableDataSource<Recipe>(recipes);
+    this.recipeService.getRecipes().subscribe(resp => {
+      this.dataSource = new MatTableDataSource<Recipe>(resp);
     });
   }
+
+  searchForRecipe(){
+    this.recipeService.search(this.search).subscribe(resp =>{
+      this.dataSource = new MatTableDataSource<Recipe>(resp);
+    });
+  }
+
 }
