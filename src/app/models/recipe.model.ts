@@ -6,4 +6,5 @@ export interface Recipe {
     calories: number;
     types: string;
     url: string;
+    
 }

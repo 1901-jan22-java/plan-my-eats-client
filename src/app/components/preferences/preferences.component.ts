@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/models/user.model';
 import { UserService } from 'src/app/services/user/user.service';
 import { PreferenceService } from 'src/app/services/preference/preference.service';
+import { Preference } from 'src/app/models/preference.model';
 
 
 @Component({
@@ -34,7 +35,7 @@ export class PreferencesComponent implements OnInit {
     { prefId: 18, name: 'Vegatarian', type: 'health', selected: false },
     { prefId: 19, name: 'Wheat-Free', type: 'health', selected: false },
   ]
-  restrauntPref = [
+  restaurantPref = [
     { prefId: 20, name: 'Chinese', type: 'cuisine', selected: false },
     { prefId: 21, name: 'Mexican', type: 'cuisine', selected: false },
     { prefId: 22, name: 'Italian', type: 'cuisine', selected: false },
@@ -56,16 +57,16 @@ export class PreferencesComponent implements OnInit {
     this.userService.user$.subscribe(resp => this.user = resp);
 
     if (this.user != undefined) {
-      for (let i = 0; i < this.user.preferences.length; i++) {
-        for (let k = 0; k < this.preference.length; k++) {
-          if (this.preference[k].prefId === this.user.preferences[i].prefId) {
-            this.preference[k].selected = true;
+      for (let p of this.user.preferences) {
+        for (let hp of this.preference) {
+          if (hp.prefId === p.prefId) {
+            hp.selected = true;
             break;
           }
         }
-        for (let k = 0; k < this.restrauntPref.length; k++) {
-          if (this.restrauntPref[k].prefId === this.user.preferences[i].prefId) {
-            this.restrauntPref[k].selected = true;
+        for (let cp of this.restaurantPref) {
+          if (cp.prefId === p.prefId) {
+            cp.selected = true;
             break;
           }
         }
@@ -75,20 +76,23 @@ export class PreferencesComponent implements OnInit {
   }
 
   updatePreferences() {
+    var prefs: Preference[] = [];
 
-    for (let i = 0; i < this.preference.length; i++) {
-      if (this.preference[i].selected) {
-        this.user.preferences.push({ prefId: this.preference[i].prefId, name: this.preference[i].name });
-        console.log(this.preference[i].name + " selected");
+    for (let p of this.preference) {
+      if (p.selected) {
+        prefs.push({ prefId: p.prefId, name: p.name, type: p.type });
+        console.log(p.name + " selected");
       }
     }
 
-    for (let i = 0; i < this.restrauntPref.length; i++) {
-      if (this.restrauntPref[i].selected) {
-        this.user.preferences.push({ prefId: this.restrauntPref[i].prefId, name: this.restrauntPref[i].name });
-        console.log(this.restrauntPref[i].name + " selected");
+    for (let p of this.restaurantPref) {
+      if (p.selected) {
+        prefs.push({ prefId: p.prefId, name: p.name, type: p.type });
+        console.log(p.name + " selected");
       }
     }
+
+    this.user.preferences = prefs;
 
     this.prefService.updatePreferences(this.user).subscribe(resp => {
       console.log(resp);
