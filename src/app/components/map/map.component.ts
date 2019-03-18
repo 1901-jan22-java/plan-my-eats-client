@@ -38,7 +38,7 @@ export class MapComponent implements OnInit {
     });
     this.map.locations$.subscribe(resp =>{
       this.locations = resp;
-    })
+    });
   }
 
 }
