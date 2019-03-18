@@ -13,7 +13,8 @@ export class MapComponent implements OnInit {
   show: boolean = false;
 
   currentLocation: MapLocation;
-  locations: Set<MapLocation>;
+  locations: MapLocation[];
+  showAllLocations: boolean = false;
 
   @ViewChild(AgmMap)
   public agmMap: AgmMap;
@@ -21,15 +22,23 @@ export class MapComponent implements OnInit {
   constructor(private map: MapService) { }
 
   ngOnInit() {
-    // this.map.getLocation().subscribe(data => {
-    //   this.currentLocation = data;
-    // });
+    navigator.geolocation.getCurrentPosition(resp => {
+      this.currentLocation = {
+        latitude: resp.coords.latitude,
+        longitude: resp.coords.longitude
+      }
+    });
+
     this.map.show$.subscribe(resp => {
       this.show = resp
     });
+
     this.map.location$.subscribe(resp => {
       this.currentLocation = resp;
     });
+    this.map.locations$.subscribe(resp =>{
+      this.locations = resp;
+    })
   }
 
 }

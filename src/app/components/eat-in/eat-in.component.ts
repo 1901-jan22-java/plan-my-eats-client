@@ -35,6 +35,13 @@ export class EatInComponent implements OnInit {
     this.user = this.userService.user;
   }
 
+  choose(recipe: Recipe){
+    this.user.recipes.push(recipe);
+    this.userService.saveUser(this.user).subscribe(resp => {
+      this.userService.update(resp);
+    });
+  }
+
   surprise() {
     this.recipeService.search(this.user).subscribe(recipes => {
       console.log(recipes);

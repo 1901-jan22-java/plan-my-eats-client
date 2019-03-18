@@ -18,21 +18,20 @@ export class EatOutComponent implements OnInit {
   user: User;
   location: string;
   keyword: string;
-  
+
   tableColumns: string[] = [
     'name',
     'location',
     'type',
-
   ];
   dataSource: MatTableDataSource<Restaurant> = new MatTableDataSource<Restaurant>();
 
   @ViewChild(MatPaginator)
   paginator: MatPaginator;
 
-  constructor(private restaurantService: RestaurantService, 
-    private map: MapService, 
-    private router: Router, 
+  constructor(private restaurantService: RestaurantService,
+    private map: MapService,
+    private router: Router,
     private userService: UserService) { }
 
   ngOnInit() {
@@ -44,8 +43,8 @@ export class EatOutComponent implements OnInit {
     console.log(this.user);
   }
 
-   //This is using an arrow function because otherwise lexical context is lost. 
-   getLocation() {
+  //This is using an arrow function because otherwise lexical context is lost. 
+  getLocation() {
     navigator.geolocation.getCurrentPosition((position) => {
       this.location = position.coords.latitude + "," + position.coords.longitude
     });
@@ -59,9 +58,9 @@ export class EatOutComponent implements OnInit {
   }
 
   surprise() {
-    let index = Math.floor(Math.random()*this.user.preferences.length);
+    let index = Math.floor(Math.random() * this.user.preferences.length);
     let pref = "";
-    if(this.user.preferences.length == 0) {
+    if (this.user.preferences.length == 0) {
       pref = " ";
     } else {
       pref = this.user.preferences[index].name;
@@ -72,5 +71,10 @@ export class EatOutComponent implements OnInit {
       console.log(restaurants);
       this.dataSource = new MatTableDataSource<Restaurant>(restaurants);
     });
+  }
+
+  showOnMap(rest: Restaurant){
+    this.map.setMapLocation(rest);
+    this.map.addLocation(rest);
   }
 }

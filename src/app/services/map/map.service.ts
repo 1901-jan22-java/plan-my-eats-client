@@ -23,15 +23,11 @@ export class MapService {
     this.show$ = this._show.asObservable();
     this.locations$ = this._locations.asObservable();
     this.location$ = this._location.asObservable();
-    this.userService.user$.subscribe(resp =>{
-      for(let r of resp.restaurants){
+    this.userService.user$.subscribe(resp => {
+      for (let r of resp.restaurants) {
         this._locations.getValue().push(r);
       }
     });
-  }
-
-  getCurrentLocation() {
-    return this.http.get<MapLocation>('https://ipapi.co/json');
   }
 
   toggleShow() {
@@ -46,21 +42,24 @@ export class MapService {
     this._show.next(false);
   }
 
-  setLocation(lat: string, lon: string) {
+  setLocation(lat: number, lon: number) {
     let loc = new MapLocation();
     loc.latitude = lat;
     loc.longitude = lon;
     this._location.next(loc);
   }
 
-  addRestaurant(newLoc: Restaurant) {
-    this._locations.getValue().push(newLoc);
-    this._locations.next(this._locations.getValue());
+  setMapLocation(newLoc: MapLocation){
+    this._location.next(newLoc);
   }
 
   addLocation(newLoc: MapLocation) {
-    this._locations.getValue().push(newLoc);
-    this._locations.next(this._locations.getValue());
+    var locs = this._locations.getValue();
+    if(locs.includes(newLoc)){
+      return;
+    }
+    locs.push(newLoc);
+    this._locations.next(locs);
   }
 
 }

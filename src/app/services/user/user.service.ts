@@ -40,6 +40,10 @@ export class UserService {
     return this._user.getValue();
   }
 
+  public saveUser(user: User){
+    return this.http.put<User>(`${this.url}`, user, httpOptions);
+  }
+
   public update(user: User) {
     console.log('Updating User: ' + user);
     localStorage.setItem('currentUser', JSON.stringify(user));
