@@ -14,9 +14,10 @@ export class PreferenceService {
 
   url: string = `${APIurl}preference/`;
 
-  constructor(private http: HttpClient) { httpOptions.headers.append('Authorization', `Bearer ${localStorage.currentUser.token}`);}
+  constructor(private http: HttpClient) { }
 
   public updatePreferences(user: User) {
+    httpOptions.headers.append('Authorization', `Bearer ${localStorage.currentUser.token}`);
     return this.http.put<User>(`${this.url}`, user, httpOptions);
   }
 

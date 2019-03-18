@@ -13,39 +13,52 @@ import { Preference } from 'src/app/models/preference.model';
 export class PreferencesComponent implements OnInit {
 
   user: User = new User();
+  preferences = [
+    { prefId: 1, type: 'health', name: 'alcohol-free', selected: false },
+    { prefId: 2, type: 'health', name: 'celery-free', selected: false },
+    { prefId: 3, type: 'health', name: 'crustacean-free', selected: false },
+    { prefId: 4, type: 'health', name: 'dairy-free', selected: false },
+    { prefId: 5, type: 'health', name: 'egg-free', selected: false },
+    { prefId: 6, type: 'health', name: 'fish-free', selected: false },
+    { prefId: 7, type: 'health', name: 'gluten-free', selected: false },
+    { prefId: 8, type: 'health', name: 'kidney-friendly', selected: false },
+    { prefId: 9, type: 'health', name: 'kosher', selected: false },
+    { prefId: 10, type: 'health', name: 'low-potassium', selected: false },
+    { prefId: 11, type: 'health', name: 'lupine-free', selected: false },
+    { prefId: 12, type: 'health', name: 'mustard-free', selected: false },
+    { prefId: 13, type: 'health', name: 'No-oil-added', selected: false },
+    { prefId: 14, type: 'health', name: 'low-sugar', selected: false },
+    { prefId: 15, type: 'health', name: 'paleo', selected: false },
+    { prefId: 16, type: 'health', name: 'peanut-free', selected: false },
+    { prefId: 17, type: 'health', name: 'pescatarian', selected: false },
+    { prefId: 18, type: 'health', name: 'pork-free', selected: false },
+    { prefId: 19, type: 'health', name: 'red-meat-free', selected: false },
+    { prefId: 20, type: 'health', name: 'sesame-free', selected: false },
+    { prefId: 21, type: 'health', name: 'shellfish-free', selected: false },
+    { prefId: 22, type: 'health', name: 'soy-free', selected: false },
+    { prefId: 23, type: 'health', name: 'sugar-conscious', selected: false },
+    { prefId: 24, type: 'health', name: 'tree-nut-free', selected: false },
+    { prefId: 25, type: 'health', name: 'vegan', selected: false },
+    { prefId: 26, type: 'health', name: 'vegetarian', selected: false },
+    { prefId: 27, type: 'health', name: 'wheat-free', selected: false },
 
-  preference = [
-    { prefId: 1, name: 'Balanced', type: 'health', selected: false },
-    { prefId: 2, name: 'High-Fiber', type: 'health', selected: false },
-    { prefId: 3, name: 'High-Protein', type: 'health', selected: false },
-    { prefId: 4, name: 'Low-Carb', type: 'health', selected: false },
-    { prefId: 5, name: 'Low-Fat', type: 'health', selected: false },
-    { prefId: 6, name: 'Low-Sodium', type: 'health', selected: false },
-    { prefId: 7, name: 'Dairy-Free', type: 'health', selected: false },
-    { prefId: 8, name: 'Egg-Free', type: 'health', selected: false },
-    { prefId: 9, name: 'Fish-Free', type: 'health', selected: false },
-    { prefId: 10, name: 'Gluten-Free', type: 'health', selected: false },
-    { prefId: 11, name: 'Low-Potassium', type: 'health', selected: false },
-    { prefId: 12, name: 'Low-Sugar', type: 'health', selected: false },
-    { prefId: 13, name: 'Peanut-Free', type: 'health', selected: false },
-    { prefId: 14, name: 'Pescatarian', type: 'health', selected: false },
-    { prefId: 15, name: 'Pork-Free', type: 'health', selected: false },
-    { prefId: 16, name: 'Red-Meat-Free', type: 'health', selected: false },
-    { prefId: 17, name: 'Vegan', type: 'health', selected: false },
-    { prefId: 18, name: 'Vegatarian', type: 'health', selected: false },
-    { prefId: 19, name: 'Wheat-Free', type: 'health', selected: false },
-  ]
-  restaurantPref = [
-    { prefId: 20, name: 'Chinese', type: 'cuisine', selected: false },
-    { prefId: 21, name: 'Mexican', type: 'cuisine', selected: false },
-    { prefId: 22, name: 'Italian', type: 'cuisine', selected: false },
-    { prefId: 23, name: 'Japanese', type: 'cuisine', selected: false },
-    { prefId: 24, name: 'Greek', type: 'cuisine', selected: false },
-    { prefId: 25, name: 'French', type: 'cuisine', selected: false },
-    { prefId: 26, name: 'Thai', type: 'cuisine', selected: false },
-    { prefId: 27, name: 'Spanish', type: 'cuisine', selected: false },
-    { prefId: 28, name: 'Indian', type: 'cuisine', selected: false },
-    { prefId: 29, name: 'Mediterranean', type: 'cuisine', selected: false }
+    { prefId: 28, name: 'chinese', type: 'cuisine', selected: false },
+    { prefId: 29, name: 'mexican', type: 'cuisine', selected: false },
+    { prefId: 30, name: 'italian', type: 'cuisine', selected: false },
+    { prefId: 31, name: 'japanese', type: 'cuisine', selected: false },
+    { prefId: 32, name: 'greek', type: 'cuisine', selected: false },
+    { prefId: 33, name: 'french', type: 'cuisine', selected: false },
+    { prefId: 34, name: 'thai', type: 'cuisine', selected: false },
+    { prefId: 35, name: 'spanish', type: 'cuisine', selected: false },
+    { prefId: 36, name: 'indian', type: 'cuisine', selected: false },
+    { prefId: 37, name: 'mediterranean', type: 'cuisine', selected: false },
+    
+    { prefId: 38, type: 'diet', name: 'balanced', selected: false},
+    { prefId: 39, type: 'diet', name: 'high-protein', selected: false},
+    { prefId: 40, type: 'diet', name: 'high-fiber', selected: false},
+    { prefId: 41, type: 'diet', name: 'low-carb', selected: false},
+    { prefId: 42, type: 'diet', name: 'low-fat', selected: false},
+    { prefId: 43, type: 'diet', name: 'low-sodium', selected: false},
   ];
 
 
@@ -58,15 +71,9 @@ export class PreferencesComponent implements OnInit {
 
     if (this.user != undefined) {
       for (let p of this.user.preferences) {
-        for (let hp of this.preference) {
+        for (let hp of this.preferences) {
           if (hp.prefId === p.prefId) {
             hp.selected = true;
-            break;
-          }
-        }
-        for (let cp of this.restaurantPref) {
-          if (cp.prefId === p.prefId) {
-            cp.selected = true;
             break;
           }
         }
@@ -78,14 +85,7 @@ export class PreferencesComponent implements OnInit {
   updatePreferences() {
     var prefs: Preference[] = [];
 
-    for (let p of this.preference) {
-      if (p.selected) {
-        prefs.push({ prefId: p.prefId, name: p.name, type: p.type });
-        console.log(p.name + " selected");
-      }
-    }
-
-    for (let p of this.restaurantPref) {
+    for (let p of this.preferences) {
       if (p.selected) {
         prefs.push({ prefId: p.prefId, name: p.name, type: p.type });
         console.log(p.name + " selected");
