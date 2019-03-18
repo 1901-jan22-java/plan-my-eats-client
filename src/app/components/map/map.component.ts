@@ -28,7 +28,7 @@ export class MapComponent implements OnInit {
     this.map.show$.subscribe(resp => {
       this.show = resp
     });
-    this.map._locations.subscribe(resp => {
+    this.map.locations$.subscribe(resp => {
       this.locations = resp;
     });
   }

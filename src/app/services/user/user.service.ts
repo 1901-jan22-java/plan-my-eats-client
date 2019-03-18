@@ -4,6 +4,7 @@ import { HttpHeaders, HttpClient } from '@angular/common/http';
 import { User } from 'src/app/models/user.model';
 import { Observable, BehaviorSubject } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { APIurl } from 'src/environments/api';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -14,7 +15,7 @@ const httpOptions = {
 })
 export class UserService {
 
-  private url: string = 'http://ec2-52-90-151-107.compute-1.amazonaws.com:8080/PlanMyEats/';
+  private url: string = APIurl;
 
   private _user: BehaviorSubject<User>;
   private _loggedIn: BehaviorSubject<boolean>;

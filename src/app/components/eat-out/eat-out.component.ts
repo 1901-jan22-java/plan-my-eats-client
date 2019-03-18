@@ -3,6 +3,7 @@ import { RestaurantService } from 'src/app/services/restaurant/restaurant.servic
 import { MatPaginator, MatTableDataSource } from '@angular/material';
 import { Restaurant } from 'src/app/models/restaurant.model';
 import { MapService } from 'src/app/services/map/map.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-eat-out',
@@ -25,16 +26,19 @@ export class EatOutComponent implements OnInit {
   @ViewChild(MatPaginator)
   paginator: MatPaginator;
 
-  constructor(private restaurantService: RestaurantService, private map: MapService) { }
+  constructor(private restaurantService: RestaurantService, private map: MapService, private router: Router) { }
 
   ngOnInit() {
     this.restaurantService.getAllRestaurants().subscribe(restaurants => {
       this.dataSource = new MatTableDataSource<Restaurant>(restaurants);
     });
   }
-  
-  toggleMap(){
+
+  toggleMap() {
     this.map.toggleShow();
+  }
+  goToHome() {
+    this.router.navigate(['home']);
   }
 
 }

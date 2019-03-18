@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Restaurant } from 'src/app/models/restaurant.model';
-
+import { APIurl } from 'src/environments/api';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -12,7 +12,7 @@ const httpOptions = {
 })
 export class RestaurantService {
 
-  url: string = 'http://ec2-52-90-151-107.compute-1.amazonaws.com:8080/PlanMyEats/restaurant';
+  url: string = `${APIurl}restaurant/`;
 
   constructor(private http: HttpClient) { }
 

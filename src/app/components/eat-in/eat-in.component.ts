@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator, MatTableDataSource } from '@angular/material';
 import { Recipe } from 'src/app/models/recipe.model';
 import { RecipeService } from 'src/app/services/recipe/recipe.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-eat-in',
@@ -23,7 +24,7 @@ export class EatInComponent implements OnInit {
   @ViewChild(MatPaginator)
   paginator: MatPaginator;
 
-  constructor(private recipeService: RecipeService) { }
+  constructor(private recipeService: RecipeService, private router: Router) { }
 
   ngOnInit() {
     this.recipeService.getRecipes().subscribe(resp => {
@@ -35,6 +36,10 @@ export class EatInComponent implements OnInit {
     this.recipeService.search(this.search).subscribe(resp =>{
       this.dataSource = new MatTableDataSource<Recipe>(resp);
     });
+  }
+
+  goToHome(){
+    this.router.navigate(['home']);
   }
 
 }
