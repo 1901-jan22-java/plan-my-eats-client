@@ -1,5 +1,6 @@
 import { Component, OnInit, QueryList, ContentChildren, AfterViewInit } from '@angular/core';
 import { MapComponent } from '../map/map.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -14,7 +15,7 @@ export class NavbarComponent implements OnInit, AfterViewInit {
   loggedIn: boolean;
   manager: boolean;
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
 
@@ -24,6 +25,10 @@ export class NavbarComponent implements OnInit, AfterViewInit {
     //THIS SHOULD NOT BE EMPTY
     this.components.changes.subscribe(() => console.log(this.components.toArray()));
     //console.log(this.inputComponents.toArray());
+  }
+
+  goToHome(){
+    this.router.navigate(['home']);
   }
 
 }

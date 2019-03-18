@@ -1,5 +1,29 @@
 <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
   <li class="nav-item">
-    <a class="nav-link" href="test">Testing Region</a>
+    <button class="nav-link" (click)="goToHome()">Home</button>
   </li>
+
+  <li class="nav-item" *ngIf="!loggedIn">
+    <button class="nav-link" (click)="goToTest()">Testing Region</button>
+  </li>
+
+  <li class="nav-item" *ngIf="loggedIn">
+    <button class="nav-link" (click)="goToPreferences()">Edit Preferences</button>
+  </li>
+  <li class="nav-item dropdown" *ngIf="loggedIn">
+    <button class="nav-link dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown" aria-haspopup="true"
+      aria-expanded="false">History</button>
+    <div class="dropdown-menu custom-dropdown-menu" aria-labelledby="dropdownId">
+      <button class="btn dropdown-button" (click)="goToRecipeHistory()"> Recipe </button>
+      <button class="btn dropdown-button" (click)="goToRestaurantHistory()"> Restaurant </button>
+    </div>
+  </li>
+
+  <li class="nav-item" *ngIf="loggedIn">
+    <button class="nav-link" (click)="goToEatIn()">Eat In</button>
+  </li>
+  <li class="nav-item" *ngIf="loggedIn">
+    <button class="nav-link" (click)="goToEatOut()">Eat Out</button>
+  </li>
+  
 </ul>

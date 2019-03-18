@@ -16,6 +16,8 @@ const routes: Routes = [
 
   {path: 'eat-in', component: EatInComponent},
   {path: 'eat-out', component: EatOutComponent},
+  {path: 'history/restaurant', component: PreferencesComponent},
+  {path: 'history/recipe', component: PreferencesComponent},
   {path: 'preferences', component: PreferencesComponent},
   
   // NOT PART OF THE APP

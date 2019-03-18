@@ -1,0 +1,17 @@
+button.nav-link {
+    background: none;
+    border: none;
+}
+
+.custom-dropdown-menu{
+    display: flexbox;
+    flex-flow: column nowrap;
+    align-content: center;
+}
+
+.dropdown-button{
+    display: block;
+    background: none !important;
+    border: none;
+    margin: 5px;
+}
